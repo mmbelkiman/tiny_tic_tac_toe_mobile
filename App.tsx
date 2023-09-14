@@ -4,7 +4,7 @@ import {SafeAreaView, Text} from 'react-native';
 function App(): JSX.Element {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Text>Hello</Text>
+      <Text>Hello_</Text>
     </SafeAreaView>
   );
 }
