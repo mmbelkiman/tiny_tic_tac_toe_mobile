@@ -1,40 +1,47 @@
 import React, {useState, useEffect} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View, Dimensions} from 'react-native';
 import styles from './styles';
-import {calculateWinner} from './utils';
+import {calculateWinner, createInitialBoard} from './utils';
 
-const Game: React.FC = () => {
-  const [board, setBoard] = useState<string[]>(Array(9).fill(''));
+interface Props {
+  boardSize: number;
+}
+
+const Game: React.FC<Props> = ({boardSize}) => {
+  const windowWidth = Dimensions.get('window').width;
+  const squareSize = windowWidth / boardSize;
+
+  const [board, setBoard] = useState<string[][]>(createInitialBoard(boardSize));
   const [isXNext, setIsXNext] = useState(true);
   const [winner, setWinner] = useState<string | null>(null);
 
-  const handleSquareClick = (index: number) => {
-    if (board[index] || winner) {
+  const handleSquareClick = (row: number, col: number) => {
+    if (board[row][col] || winner) {
       return;
     }
 
-    const newBoard = [...board];
-    newBoard[index] = isXNext ? 'X' : 'O';
+    const newBoard = [...board.map(r => [...r])];
+    newBoard[row][col] = isXNext ? 'X' : 'O';
     setBoard(newBoard);
     setIsXNext(!isXNext);
   };
 
-  const renderSquare = (index: number) => {
+  const renderSquare = (row: number, col: number) => {
     return (
       <TouchableOpacity
-        style={styles.square}
-        onPress={() => handleSquareClick(index)}>
-        <Text style={styles.squareText}>{board[index]}</Text>
+        style={[styles.square, {width: squareSize, height: squareSize}]}
+        onPress={() => handleSquareClick(row, col)}>
+        <Text style={styles.squareText}>{board[row][col]}</Text>
       </TouchableOpacity>
     );
   };
 
   useEffect(() => {
-    const newWinner = calculateWinner(board);
+    const newWinner = calculateWinner(board, boardSize);
     if (newWinner) {
       setWinner(newWinner);
     }
-  }, [board]);
+  }, [board, boardSize]);
 
   const status = winner
     ? `Winner: ${winner}`
@@ -44,23 +51,16 @@ const Game: React.FC = () => {
     <View style={styles.container}>
       <Text style={styles.status}>{status}</Text>
       <View style={styles.board}>
-        <View style={styles.row}>
-          {renderSquare(0)}
-          {renderSquare(1)}
-          {renderSquare(2)}
-        </View>
-        <View style={styles.row}>
-          {renderSquare(3)}
-          {renderSquare(4)}
-          {renderSquare(5)}
-        </View>
-        <View style={styles.row}>
-          {renderSquare(6)}
-          {renderSquare(7)}
-          {renderSquare(8)}
-        </View>
+        {Array.from({length: boardSize}).map((_, row) => (
+          <View key={row} style={styles.row}>
+            {Array.from({length: boardSize}).map((_, col) =>
+              renderSquare(row, col),
+            )}
+          </View>
+        ))}
       </View>
     </View>
   );
 };
+
 export default Game;
