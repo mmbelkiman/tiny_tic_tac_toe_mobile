@@ -18,7 +18,7 @@ const Square: React.FC<SquareProps> = ({
 }) => {
   const [animation] = useState(new Animated.Value(0));
   const [currentValue, setCurrentValue] = useState('');
-  let lottieAnimation: LottieView | null; // Define a ref for the animation
+  let lottieAnimation: LottieView | null;
 
   const handlePress = () => {
     playShakeAnimation();
@@ -97,7 +97,7 @@ const Square: React.FC<SquareProps> = ({
             borderWidth: 1,
             width: squareSize,
             height: squareSize,
-            backgroundColor: '#33333311', // Customize the square style as needed
+            backgroundColor: '#33333311',
           },
           shakeStyle,
         ]}>

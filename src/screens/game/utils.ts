@@ -1,6 +1,9 @@
-const checkRows = (squares: string[][], boardSize: number): string | null => {
+const checkRows = (
+  squares: string[][],
+  boardSize: number,
+): WinnerResult | null => {
   for (let i = 0; i < boardSize; i++) {
-    const firstMark = squares[i][0]; // Save the first mark in the row
+    const firstMark = squares[i][0];
 
     // If the first mark is not empty, proceed to check the row
     if (firstMark !== '') {
@@ -14,7 +17,7 @@ const checkRows = (squares: string[][], boardSize: number): string | null => {
       }
 
       if (isWinner) {
-        return firstMark;
+        return {winner: firstMark, direction: 'horizontal', position: i};
       }
     }
   }
@@ -24,9 +27,9 @@ const checkRows = (squares: string[][], boardSize: number): string | null => {
 const checkColumns = (
   squares: string[][],
   boardSize: number,
-): string | null => {
+): WinnerResult | null => {
   for (let i = 0; i < boardSize; i++) {
-    const firstMark = squares[0][i]; // Save the first mark in the column
+    const firstMark = squares[0][i];
 
     // If the first mark is not empty, proceed to check the column
     if (firstMark !== '') {
@@ -40,7 +43,7 @@ const checkColumns = (
       }
 
       if (isWinner) {
-        return firstMark;
+        return {winner: firstMark, direction: 'vertical', position: i};
       }
     }
   }
@@ -50,10 +53,13 @@ const checkColumns = (
 const checkDiagonalTopLeft = (
   squares: string[][],
   boardSize: number,
-): string | null => {
+): WinnerResult | null => {
   let currentMark = squares[0][0];
   let isWinner = true;
 
+  if (currentMark === '') {
+    return null;
+  }
   for (let i = 0; i < boardSize; i++) {
     if (squares[i][i] !== currentMark) {
       isWinner = false;
@@ -61,15 +67,21 @@ const checkDiagonalTopLeft = (
     }
   }
 
-  return isWinner ? currentMark : null;
+  return isWinner
+    ? {winner: currentMark, direction: 'diagonalTopLeft', position: 0}
+    : null;
 };
 
 const checkDiagonalTopRight = (
   squares: string[][],
   boardSize: number,
-): string | null => {
+): WinnerResult | null => {
   let currentMark = squares[0][boardSize - 1];
   let isWinner = true;
+
+  if (currentMark === '') {
+    return null;
+  }
 
   for (let i = 0; i < boardSize; i++) {
     if (squares[i][boardSize - 1 - i] !== currentMark) {
@@ -78,13 +90,15 @@ const checkDiagonalTopRight = (
     }
   }
 
-  return isWinner ? currentMark : null;
+  return isWinner
+    ? {winner: currentMark, direction: 'diagonalTopRight', position: 0}
+    : null;
 };
 
 const checkDiagonals = (
   squares: string[][],
   boardSize: number,
-): string | null => {
+): WinnerResult | null => {
   const topLeftWinner = checkDiagonalTopLeft(squares, boardSize);
   if (topLeftWinner) {
     return topLeftWinner;
@@ -98,10 +112,16 @@ const checkDiagonals = (
   return null;
 };
 
+interface WinnerResult {
+  winner: string | null;
+  direction: string | null; // 'horizontal', 'vertical', 'diagonalTopLeft', 'diagonalTopRight', or null if no winner
+  position: number;
+}
+
 const calculateWinner = (
   squares: string[][],
   boardSize: number,
-): string | null => {
+): WinnerResult => {
   const rowWinner = checkRows(squares, boardSize);
   if (rowWinner) {
     return rowWinner;
@@ -117,7 +137,7 @@ const calculateWinner = (
     return diagonalWinner;
   }
 
-  return null;
+  return {winner: null, direction: null, position: -1};
 };
 
 const createInitialBoard = (boardSize: number): string[][] => {
