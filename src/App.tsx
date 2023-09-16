@@ -15,7 +15,7 @@ const App: React.FC = () => {
       {gameState === 'STOP' ? (
         <Button title="START GAME" onPress={startGame} />
       ) : (
-        <Game boardSize={10} />
+        <Game boardSize={4} />
       )}
     </View>
   );

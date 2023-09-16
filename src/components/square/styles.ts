@@ -6,26 +6,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  status: {
-    marginBottom: 10,
-    fontSize: 24,
-  },
-  board: {
-    flexDirection: 'column',
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  square: {
+  hitBox: {
     width: 100,
     height: 100,
-    borderWidth: 1,
-    borderColor: 'black',
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  squareText: {
+  hitText: {
+    color: 'white',
     fontSize: 24,
-    color: 'red',
   },
 });

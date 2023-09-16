@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {Text, TouchableOpacity, View, Dimensions} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Dimensions, Text, View} from 'react-native';
 import styles from './styles';
 import {calculateWinner, createInitialBoard} from './utils';
+import Square from '../../components/square';
 
 interface Props {
   boardSize: number;
@@ -26,16 +27,6 @@ const Game: React.FC<Props> = ({boardSize}) => {
     setIsXNext(!isXNext);
   };
 
-  const renderSquare = (row: number, col: number) => {
-    return (
-      <TouchableOpacity
-        style={[styles.square, {width: squareSize, height: squareSize}]}
-        onPress={() => handleSquareClick(row, col)}>
-        <Text style={styles.squareText}>{board[row][col]}</Text>
-      </TouchableOpacity>
-    );
-  };
-
   useEffect(() => {
     const newWinner = calculateWinner(board, boardSize);
     if (newWinner) {
@@ -51,11 +42,17 @@ const Game: React.FC<Props> = ({boardSize}) => {
     <View style={styles.container}>
       <Text style={styles.status}>{status}</Text>
       <View style={styles.board}>
-        {Array.from({length: boardSize}).map((_, row) => (
-          <View key={row} style={styles.row}>
-            {Array.from({length: boardSize}).map((_, col) =>
-              renderSquare(row, col),
-            )}
+        {board.map((row, rowIndex) => (
+          <View key={rowIndex} style={styles.row}>
+            {row.map((square, colIndex) => (
+              <Square
+                key={colIndex}
+                value={isXNext ? 'X' : 'O'}
+                onPress={() => handleSquareClick(rowIndex, colIndex)}
+                squareSize={squareSize}
+                winner={winner}
+              />
+            ))}
           </View>
         ))}
       </View>
