@@ -1,4 +1,4 @@
-const checkRows = (
+export const checkRows = (
   squares: string[][],
   boardSize: number,
 ): WinnerResult | null => {
@@ -24,7 +24,7 @@ const checkRows = (
   return null;
 };
 
-const checkColumns = (
+export const checkColumns = (
   squares: string[][],
   boardSize: number,
 ): WinnerResult | null => {
@@ -50,7 +50,7 @@ const checkColumns = (
   return null;
 };
 
-const checkDiagonalTopLeft = (
+export const checkDiagonalTopLeft = (
   squares: string[][],
   boardSize: number,
 ): WinnerResult | null => {
@@ -72,7 +72,7 @@ const checkDiagonalTopLeft = (
     : null;
 };
 
-const checkDiagonalTopRight = (
+export const checkDiagonalTopRight = (
   squares: string[][],
   boardSize: number,
 ): WinnerResult | null => {
@@ -95,7 +95,7 @@ const checkDiagonalTopRight = (
     : null;
 };
 
-const checkDiagonals = (
+export const checkDiagonals = (
   squares: string[][],
   boardSize: number,
 ): WinnerResult | null => {
@@ -112,7 +112,7 @@ const checkDiagonals = (
   return null;
 };
 
-interface WinnerResult {
+export interface WinnerResult {
   winner: string | null;
   direction: string | null; // 'horizontal', 'vertical', 'diagonalTopLeft', 'diagonalTopRight', or null if no winner
   position: number;
