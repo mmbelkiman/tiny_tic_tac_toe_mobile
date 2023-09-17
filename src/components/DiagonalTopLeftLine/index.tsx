@@ -1,10 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
+import {PlayerMark} from '../../common/types';
 
 interface DiagonalTopLeftLineProps {
   length: number;
   height: number;
-  winner: 'X' | 'O' | null;
+  winner: PlayerMark | null;
   visible: boolean;
 }
 

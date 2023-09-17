@@ -1,9 +1,11 @@
+import {PlayerMark} from '../../common/types';
+
 export const checkRows = (
-  squares: string[][],
+  squares: PlayerMark[][],
   boardSize: number,
 ): WinnerResult | null => {
   for (let i = 0; i < boardSize; i++) {
-    const firstMark = squares[i][0];
+    const firstMark: PlayerMark = squares[i][0];
 
     // If the first mark is not empty, proceed to check the row
     if (firstMark !== '') {
@@ -25,7 +27,7 @@ export const checkRows = (
 };
 
 export const checkColumns = (
-  squares: string[][],
+  squares: PlayerMark[][],
   boardSize: number,
 ): WinnerResult | null => {
   for (let i = 0; i < boardSize; i++) {
@@ -51,7 +53,7 @@ export const checkColumns = (
 };
 
 export const checkDiagonalTopLeft = (
-  squares: string[][],
+  squares: PlayerMark[][],
   boardSize: number,
 ): WinnerResult | null => {
   let currentMark = squares[0][0];
@@ -73,7 +75,7 @@ export const checkDiagonalTopLeft = (
 };
 
 export const checkDiagonalTopRight = (
-  squares: string[][],
+  squares: PlayerMark[][],
   boardSize: number,
 ): WinnerResult | null => {
   let currentMark = squares[0][boardSize - 1];
@@ -96,7 +98,7 @@ export const checkDiagonalTopRight = (
 };
 
 export const checkDiagonals = (
-  squares: string[][],
+  squares: PlayerMark[][],
   boardSize: number,
 ): WinnerResult | null => {
   const topLeftWinner = checkDiagonalTopLeft(squares, boardSize);
@@ -119,7 +121,7 @@ export interface WinnerResult {
 }
 
 const calculateWinner = (
-  squares: string[][],
+  squares: PlayerMark[][],
   boardSize: number,
 ): WinnerResult => {
   const rowWinner = checkRows(squares, boardSize);
@@ -140,7 +142,7 @@ const calculateWinner = (
   return {winner: null, direction: null, position: -1};
 };
 
-const createInitialBoard = (boardSize: number): string[][] => {
+const createInitialBoard = (boardSize: number): PlayerMark[][] => {
   return Array.from({length: boardSize}, () => Array(boardSize).fill(''));
 };
 

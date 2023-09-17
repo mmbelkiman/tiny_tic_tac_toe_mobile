@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {Dimensions, Text, View} from 'react-native';
 import styles from './styles';
 import {calculateWinner, createInitialBoard} from './utils';
-import Square from '../../components/square';
+import Square from '../../components/Square';
 import HorizontalLine from '../../components/HorizontalLine';
 import VerticalLine from '../../components/VerticalLine';
 import DiagonalTopLeftLine from '../../components/DiagonalTopLeftLine';
+import {PlayerMark} from '../../common/types';
 
 interface Props {
   boardSize: number;
@@ -15,10 +16,12 @@ const Game: React.FC<Props> = ({boardSize}) => {
   const windowWidth = Dimensions.get('window').width;
   const squareSize = windowWidth / boardSize;
 
-  const [board, setBoard] = useState<string[][]>(createInitialBoard(boardSize));
+  const [board, setBoard] = useState<PlayerMark[][]>(
+    createInitialBoard(boardSize),
+  );
   const [isXNext, setIsXNext] = useState(true);
   const [winner, setWinner] = useState<{
-    winner: string | null;
+    winner: PlayerMark | null;
     direction: string | null;
     position: number;
   } | null>(null);
@@ -36,7 +39,6 @@ const Game: React.FC<Props> = ({boardSize}) => {
 
   useEffect(() => {
     const newWinner = calculateWinner(board, boardSize);
-    console.log(newWinner);
     if (newWinner.winner) {
       setWinner(newWinner);
     }
@@ -55,7 +57,7 @@ const Game: React.FC<Props> = ({boardSize}) => {
             {row.map((square, colIndex) => (
               <Square
                 key={colIndex}
-                value={isXNext ? 'X' : 'O'}
+                playerMark={isXNext ? 'X' : 'O'}
                 onPress={() => handleSquareClick(rowIndex, colIndex)}
                 squareSize={squareSize}
                 winner={winner?.winner || null}

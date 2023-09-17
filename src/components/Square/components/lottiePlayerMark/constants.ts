@@ -1,0 +1,2 @@
+export const ANIMATION_DURATION_X = 300;
+export const ANIMATION_DURATION_O = 1000;
