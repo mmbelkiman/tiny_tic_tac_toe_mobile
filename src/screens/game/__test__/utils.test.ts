@@ -6,8 +6,8 @@ import {
   checkDiagonalTopRight,
   checkRows,
   createInitialBoard,
-  WinnerResult,
 } from '../utils';
+import {WinnerResult} from '../common/types';
 
 describe('Game Utils', () => {
   describe('checkRows', () => {
@@ -371,7 +371,7 @@ describe('Game Utils', () => {
       ];
 
       const result: WinnerResult = calculateWinner(squares, boardSize);
-      expect(result).toEqual({winner: null, direction: null, position: -1});
+      expect(result).toEqual({winner: '', direction: null, position: null});
     });
   });
 

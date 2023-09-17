@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerticalLine Component should match the snapshot with a winner 1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "backgroundColor": "#D80E0D",
+      "borderRadius": 10,
+      "height": "90%",
+      "left": 50,
+      "opacity": 0,
+      "position": "absolute",
+      "top": "5%",
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": 0,
+    }
+  }
+/>
+`;
+
+exports[`VerticalLine Component should match the snapshot without a winner 1`] = `null`;

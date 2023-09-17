@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WinnerLine Component should match snapshot when no winner 1`] = `null`;
+
+exports[`WinnerLine Component should match the diagonal top left line snapshot 1`] = `
+<DiagonalTopLeftLine
+  height={10}
+  length={692.9174811988408}
+  winner="X"
+/>
+`;
+
+exports[`WinnerLine Component should match the diagonal top right line snapshot 1`] = `
+<DiagonalTopRightLine
+  height={10}
+  length={841.5009774386089}
+  winner="O"
+/>
+`;
+
+exports[`WinnerLine Component should match the horizontal line snapshot 1`] = `
+<HorizontalLine
+  height={12.5}
+  positionY={345}
+  winner="X"
+/>
+`;
+
+exports[`WinnerLine Component should match the vertical line snapshot 1`] = `
+<VerticalLine
+  positionX={545}
+  width={12.5}
+  winner="O"
+/>
+`;

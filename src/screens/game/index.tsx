@@ -1,18 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Dimensions, Text, View} from 'react-native';
-import Square from '@/components/Square';
-import HorizontalLine from '@/components/HorizontalLine';
-import VerticalLine from '@/components/VerticalLine';
-import DiagonalTopLeftLine from '@/components/DiagonalTopLeftLine';
-import {PlayerMark} from '@/common/types';
-import DiagonalTopRightLine from '@/components/DiagonalTopRightLine';
 import styles from './styles';
-import {
-  calculateLineHorizontalLength,
-  calculateWinner,
-  createInitialBoard,
-  WinnerResult,
-} from './utils';
+import WinnerLine from './components/WinnerLine';
+import Square from './components/Square';
+import {calculateWinner, createInitialBoard} from './utils';
+import {WinnerResult, PlayerMark} from './common/types';
 
 interface Props {
   boardSize: number;
@@ -26,7 +18,11 @@ const Game: React.FC<Props> = ({boardSize}) => {
     createInitialBoard(boardSize),
   );
   const [isXNext, setIsXNext] = useState(true);
-  const [winner, setWinner] = useState<WinnerResult | null>(null);
+  const [winner, setWinner] = useState<WinnerResult>({
+    winner: '',
+    direction: null,
+    position: null,
+  });
 
   const handleSquareClick = (row: number, col: number) => {
     if (board[row][col] || winner?.winner) {
@@ -67,32 +63,13 @@ const Game: React.FC<Props> = ({boardSize}) => {
             ))}
           </View>
         ))}
-        <HorizontalLine
-          winner={winner?.winner}
-          positionY={((winner?.position || 0) + 0.4) * squareSize}
-          height={squareSize / 8}
-          visible={winner?.direction === 'horizontal'}
-        />
 
-        <VerticalLine
-          width={squareSize / 8}
-          positionX={((winner?.position || 0) + 0.43) * squareSize}
-          winner={winner?.winner}
-          visible={winner?.direction === 'vertical'}
-        />
-
-        <DiagonalTopLeftLine
-          length={calculateLineHorizontalLength(boardSize, squareSize)}
-          height={squareSize / 10}
-          winner={winner?.winner}
-          visible={winner?.direction === 'diagonalTopLeft'}
-        />
-
-        <DiagonalTopRightLine
-          length={calculateLineHorizontalLength(boardSize, squareSize)}
-          height={squareSize / 10}
-          winner={winner?.winner}
-          visible={winner?.direction === 'diagonalTopRight'}
+        <WinnerLine
+          winnerMark={winner.winner}
+          boardPosition={winner.position}
+          squareSize={squareSize}
+          winnerResultDirection={winner.direction}
+          boardSize={boardSize}
         />
       </View>
     </View>

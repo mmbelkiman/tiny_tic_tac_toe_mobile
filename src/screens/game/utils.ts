@@ -1,4 +1,4 @@
-import {PlayerMark} from '@/common/types';
+import {PlayerMark, WinnerResult} from '@/screens/game/common/types';
 
 export const checkRows = (
   squares: PlayerMark[][],
@@ -114,18 +114,6 @@ export const checkDiagonals = (
   return null;
 };
 
-export type WinnerResultDirection =
-  | 'horizontal'
-  | 'vertical'
-  | 'diagonalTopLeft'
-  | 'diagonalTopRight';
-
-export interface WinnerResult {
-  winner: string | null;
-  direction: WinnerResultDirection | null;
-  position: number;
-}
-
 export const calculateWinner = (
   squares: PlayerMark[][],
   boardSize: number,
@@ -145,22 +133,9 @@ export const calculateWinner = (
     return diagonalWinner;
   }
 
-  return {winner: null, direction: null, position: -1};
+  return {winner: '', direction: null, position: null};
 };
 
 export const createInitialBoard = (boardSize: number): PlayerMark[][] => {
   return Array.from({length: boardSize}, () => Array(boardSize).fill(''));
-};
-
-export const calculateLineHorizontalLength = (
-  boardSize: number,
-  squareSize: number,
-) => {
-  const lineAngle = 45;
-  const padding = 50;
-
-  const squareDiagonalLength = Math.sqrt(squareSize * squareSize * 2);
-  const lineLength = boardSize * Math.cos(lineAngle) * squareDiagonalLength;
-
-  return lineLength * 2 - padding;
 };
