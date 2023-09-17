@@ -1,10 +1,17 @@
-import React, {useCallback, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
+import {PlayerMark} from '../../common/types';
+import {getLineStyle} from './utils';
+import {
+  playOpacityAnimation,
+  playShakeAnimation,
+  playWidthAnimation,
+} from './animations';
 
 interface VerticalLineProps {
   width: number;
   positionX: number;
-  winner: 'X' | 'O' | null;
+  winner: PlayerMark;
   visible: boolean;
 }
 
@@ -14,85 +21,38 @@ const VerticalLine: React.FC<VerticalLineProps> = ({
   winner,
   visible,
 }) => {
-  const lineColor =
-    winner === 'X' ? 'rgba(216, 14, 13, 0.8)' : 'rgba(0, 0, 0, 0.8)';
-  const opacity = useRef(new Animated.Value(0)).current;
+  const opacityAnimation = useRef(new Animated.Value(0)).current;
   const widthAnimation = useRef(new Animated.Value(0)).current;
-  const animation = useRef(new Animated.Value(0)).current;
-
-  const playShakeAnimation = useCallback(() => {
-    Animated.sequence([
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 200,
-        useNativeDriver: false,
-      }),
-      Animated.timing(animation, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: false,
-      }),
-    ]).start();
-  }, [animation]);
+  const shakeAnimation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (visible) {
-      // Play opacity animation
-      Animated.timing(opacity, {
-        toValue: 0.8,
-        duration: 90,
-        useNativeDriver: false,
-      }).start();
-
-      // Play width animation
-      Animated.timing(widthAnimation, {
-        toValue: width,
-        duration: 80,
-        useNativeDriver: false,
-      }).start();
-
-      // Play shake animation
-      playShakeAnimation();
-    } else {
-      // Reset animations when not visible
-      Animated.timing(opacity, {
-        toValue: 0,
-        duration: 0,
-        useNativeDriver: false,
-      }).start();
-
-      Animated.timing(widthAnimation, {
-        toValue: 0,
-        duration: 0,
-        useNativeDriver: false,
-      }).start();
+    if (visible && winner) {
+      playOpacityAnimation(opacityAnimation);
+      playWidthAnimation(widthAnimation, width);
+      playShakeAnimation(shakeAnimation);
     }
-  }, [visible, opacity, widthAnimation, width, playShakeAnimation]);
+  }, [
+    opacityAnimation,
+    shakeAnimation,
+    visible,
+    width,
+    widthAnimation,
+    winner,
+  ]);
 
-  if (!visible) {
+  if (!visible || winner === null) {
     return null;
   }
 
   return (
     <Animated.View
-      style={{
-        position: 'absolute',
-        backgroundColor: lineColor,
-        width: widthAnimation,
-        height: '90%',
-        left: positionX,
-        top: '5%',
-        opacity,
-        borderRadius: 10,
-        transform: [
-          {
-            translateY: animation.interpolate({
-              inputRange: [0, 0.2, 0.4, 0.6, 0.8, 1],
-              outputRange: [0, -5, 5, -5, 5, 0],
-            }),
-          },
-        ],
-      }}
+      style={getLineStyle(
+        winner,
+        positionX,
+        widthAnimation,
+        opacityAnimation,
+        shakeAnimation,
+      )}
     />
   );
 };

@@ -1,21 +1,21 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 import {PlayerMark} from '../../common/types';
+import {getLineStyle} from './utils';
 import {
   playHeightAnimation,
   playOpacityAnimation,
   playShakeAnimation,
 } from './animations';
-import {getLineStyle} from './utils';
 
-interface DiagonalTopLeftLineProps {
+interface DiagonalTopRightLineProps {
   length: number;
   height: number;
   winner: PlayerMark | null;
   visible: boolean;
 }
 
-const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
+const DiagonalTopRightLine: React.FC<DiagonalTopRightLineProps> = ({
   length,
   height,
   winner,
@@ -26,19 +26,10 @@ const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
   const shakeAnimation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (visible && winner) {
-      playOpacityAnimation(opacityAnimation);
-      playHeightAnimation(heightAnimation, height);
-      playShakeAnimation(shakeAnimation);
-    }
-  }, [
-    height,
-    heightAnimation,
-    opacityAnimation,
-    shakeAnimation,
-    visible,
-    winner,
-  ]);
+    playOpacityAnimation(opacityAnimation);
+    playHeightAnimation(heightAnimation, height);
+    playShakeAnimation(shakeAnimation);
+  }, [opacityAnimation, heightAnimation, shakeAnimation, height]);
 
   if (!visible || winner === null) {
     return null;
@@ -50,7 +41,7 @@ const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
         winner,
         length,
         height,
-        left: height,
+        right: height,
         heightAnimation,
         opacityAnimation,
         shakeAnimation,
@@ -59,4 +50,4 @@ const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
   );
 };
 
-export default DiagonalTopLeftLine;
+export default DiagonalTopRightLine;

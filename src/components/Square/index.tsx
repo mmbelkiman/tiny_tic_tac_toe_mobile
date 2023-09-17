@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {Animated, TouchableOpacity} from 'react-native';
 import {PlayerMark} from '../../common/types';
 import {playShakeAnimation} from './animations';
@@ -20,7 +20,7 @@ const Square: React.FC<SquareProps> = ({
   onPress,
   testID = '',
 }) => {
-  const [animation] = useState(new Animated.Value(0));
+  const animation = useRef(new Animated.Value(0)).current;
   const [activePlayerMark, setActivePlayerMark] = useState<PlayerMark>('');
 
   const handleOnPress = () => {
