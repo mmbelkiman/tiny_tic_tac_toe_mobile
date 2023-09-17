@@ -1,12 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
-import {
-  playHeightAnimation,
-  playOpacityAnimation,
-  playShakeAnimation,
-} from './animations';
+import {playHeightAnimation, playShakeAnimation} from './animations';
 import {PlayerMark} from '../../common/types';
 import {getLineStyle} from './utils';
+import {playOpacityAnimation} from '../../common/animations';
 
 interface HorizontalLineProps {
   height: number;

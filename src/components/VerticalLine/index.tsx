@@ -2,11 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 import {PlayerMark} from '../../common/types';
 import {getLineStyle} from './utils';
-import {
-  playOpacityAnimation,
-  playShakeAnimation,
-  playWidthAnimation,
-} from './animations';
+import {playShakeAnimation, playWidthAnimation} from './animations';
+import {playOpacityAnimation} from '../../common/animations';
 
 interface VerticalLineProps {
   width: number;

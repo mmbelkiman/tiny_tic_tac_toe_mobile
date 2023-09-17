@@ -2,11 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 import {PlayerMark} from '../../common/types';
 import {getLineStyle} from './utils';
-import {
-  playHeightAnimation,
-  playOpacityAnimation,
-  playShakeAnimation,
-} from './animations';
+import {playHeightAnimation, playShakeAnimation} from './animations';
+import {playOpacityAnimation} from '../../common/animations';
 
 interface DiagonalTopRightLineProps {
   length: number;
