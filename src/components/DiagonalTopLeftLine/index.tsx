@@ -1,8 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
-import {playOpacityAnimation} from '@/common/animations';
+import {
+  playOpacityAnimation,
+  playShakeAnimation,
+  playSizeAnimation,
+} from '@/common/animations';
 import {PlayerMark} from '@/common/types';
-import {playHeightAnimation, playShakeAnimation} from './animations';
 import {getLineStyle} from './utils';
 
 interface DiagonalTopLeftLineProps {
@@ -25,7 +28,7 @@ const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
   useEffect(() => {
     if (visible && winner) {
       playOpacityAnimation(opacityAnimation);
-      playHeightAnimation(heightAnimation, height);
+      playSizeAnimation(heightAnimation, height);
       playShakeAnimation(shakeAnimation);
     }
   }, [

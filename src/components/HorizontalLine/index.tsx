@@ -1,9 +1,12 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 import {PlayerMark} from '@/common/types';
-import {playOpacityAnimation} from '@/common/animations';
+import {
+  playOpacityAnimation,
+  playShakeAnimation,
+  playSizeAnimation,
+} from '@/common/animations';
 import {getLineStyle} from './utils';
-import {playHeightAnimation, playShakeAnimation} from './animations';
 
 interface HorizontalLineProps {
   height: number;
@@ -25,7 +28,7 @@ const HorizontalLine: React.FC<HorizontalLineProps> = ({
   useEffect(() => {
     if (visible && winner) {
       playOpacityAnimation(opacityAnimation);
-      playHeightAnimation(heightAnimation, height);
+      playSizeAnimation(heightAnimation, height);
       playShakeAnimation(shakeAnimation);
     }
   }, [

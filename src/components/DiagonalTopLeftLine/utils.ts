@@ -1,8 +1,27 @@
 import {Animated} from 'react-native';
 import {getPlayerColor} from '@/common/utils';
 import {PlayerMark} from '@/common/types';
-import {getShakeStyle} from './animations';
 import styles from './styles';
+
+export const getShakeStyle = (
+  animation: Animated.Value,
+  length: number,
+  height: number,
+) => ({
+  transform: [
+    {translateX: -length / 2},
+    {translateY: -height / 2},
+    {rotate: '45deg'},
+    {translateX: length / 2},
+    {translateY: height / 2},
+    {
+      translateY: animation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, -5],
+      }),
+    },
+  ],
+});
 
 export const getLineStyle = ({
   winner,

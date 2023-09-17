@@ -1,9 +1,12 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 import {PlayerMark} from '@/common/types';
-import {playOpacityAnimation} from '@/common/animations';
+import {
+  playOpacityAnimation,
+  playShakeAnimation,
+  playSizeAnimation,
+} from '@/common/animations';
 import {getLineStyle} from './utils';
-import {playHeightAnimation, playShakeAnimation} from './animations';
 
 interface DiagonalTopRightLineProps {
   length: number;
@@ -24,7 +27,7 @@ const DiagonalTopRightLine: React.FC<DiagonalTopRightLineProps> = ({
 
   useEffect(() => {
     playOpacityAnimation(opacityAnimation);
-    playHeightAnimation(heightAnimation, height);
+    playSizeAnimation(heightAnimation, height);
     playShakeAnimation(shakeAnimation);
   }, [opacityAnimation, heightAnimation, shakeAnimation, height]);
 

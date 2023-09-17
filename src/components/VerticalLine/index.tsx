@@ -1,9 +1,12 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 import {PlayerMark} from '@/common/types';
-import {playOpacityAnimation} from '@/common/animations';
+import {
+  playOpacityAnimation,
+  playShakeAnimation,
+  playSizeAnimation,
+} from '@/common/animations';
 import {getLineStyle} from './utils';
-import {playShakeAnimation, playWidthAnimation} from './animations';
 
 interface VerticalLineProps {
   width: number;
@@ -25,7 +28,7 @@ const VerticalLine: React.FC<VerticalLineProps> = ({
   useEffect(() => {
     if (visible && winner) {
       playOpacityAnimation(opacityAnimation);
-      playWidthAnimation(widthAnimation, width);
+      playSizeAnimation(widthAnimation, width);
       playShakeAnimation(shakeAnimation);
     }
   }, [
