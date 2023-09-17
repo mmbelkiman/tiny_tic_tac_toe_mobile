@@ -1,4 +1,4 @@
-import {PlayerMark} from '../../common/types';
+import {PlayerMark} from '@/common/types';
 
 export const checkRows = (
   squares: PlayerMark[][],

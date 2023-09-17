@@ -1,8 +1,8 @@
-import {PlayerMark} from '../../common/types';
+import {Animated} from 'react-native';
+import {getPlayerColor} from '@/common/utils';
+import {PlayerMark} from '@/common/types';
 import styles from './styles';
 import {getShakeStyle} from './animations';
-import {Animated} from 'react-native';
-import {getPlayerColor} from '../../common/utils';
 
 export const getLineStyle = (
   winner: PlayerMark,

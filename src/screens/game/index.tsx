@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Dimensions, Text, View} from 'react-native';
+import Square from '@/components/Square';
+import HorizontalLine from '@/components/HorizontalLine';
+import VerticalLine from '@/components/VerticalLine';
+import DiagonalTopLeftLine from '@/components/DiagonalTopLeftLine';
+import {PlayerMark} from '@/common/types';
+import DiagonalTopRightLine from '@/components/DiagonalTopRightLine';
 import styles from './styles';
 import {
   calculateLineHorizontalLength,
@@ -7,12 +13,6 @@ import {
   createInitialBoard,
   WinnerResult,
 } from './utils';
-import Square from '../../components/Square';
-import HorizontalLine from '../../components/HorizontalLine';
-import VerticalLine from '../../components/VerticalLine';
-import DiagonalTopLeftLine from '../../components/DiagonalTopLeftLine';
-import {PlayerMark} from '../../common/types';
-import DiagonalTopRightLine from '../../components/DiagonalTopRightLine';
 
 interface Props {
   boardSize: number;

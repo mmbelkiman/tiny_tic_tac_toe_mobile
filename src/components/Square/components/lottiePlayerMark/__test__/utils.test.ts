@@ -1,9 +1,9 @@
 import {ViewStyle} from 'react-native';
 import {getMarkStyle, getMarkDuration, getMarkAnimationFile} from '../utils';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from '../constants';
-import {PlayerMark} from '../../../../../common/types';
-import lottieCrossAnimation from '../../../res/lottieCrossAnimation.json';
-import lottieCircleAnimation from '../../../res/lottieCircleAnimation.json';
+import {PlayerMark} from '@/common/types';
+import lottieCrossAnimation from '../res/lottieCrossAnimation.json';
+import lottieCircleAnimation from '../res/lottieCircleAnimation.json';
 
 describe('Utils Tests', () => {
   describe('getMarkDuration', () => {

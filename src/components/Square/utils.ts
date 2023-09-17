@@ -1,6 +1,6 @@
+import {Animated} from 'react-native';
 import styles from './styles';
 import {getShakeStyle} from './animations';
-import {Animated} from 'react-native';
 
 export const getSquareStyle = (
   squareSize: number,
