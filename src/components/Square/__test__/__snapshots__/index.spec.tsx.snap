@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Square Component renders correctly with a winner 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+  testID="Square.TouchableOpacity"
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "#33333311",
+        "borderColor": "#00000022",
+        "borderWidth": 1,
+        "height": 100,
+        "transform": [
+          {
+            "translateX": 0,
+          },
+          {
+            "translateY": -2,
+          },
+        ],
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Square Component renders correctly with playerMark "O" and squareSize 32 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+  testID="Square.TouchableOpacity"
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "#33333311",
+        "borderColor": "#00000022",
+        "borderWidth": 1,
+        "height": 32,
+        "transform": [
+          {
+            "translateX": 0,
+          },
+          {
+            "translateY": -2,
+          },
+        ],
+        "width": 32,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Square Component renders correctly with playerMark "X" and squareSize 100 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+  testID="Square.TouchableOpacity"
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "#33333311",
+        "borderColor": "#00000022",
+        "borderWidth": 1,
+        "height": 100,
+        "transform": [
+          {
+            "translateX": 0,
+          },
+          {
+            "translateY": -2,
+          },
+        ],
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Square Component renders correctly without winner and playerMark 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+  testID="Square.TouchableOpacity"
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "#33333311",
+        "borderColor": "#00000022",
+        "borderWidth": 1,
+        "height": 100,
+        "transform": [
+          {
+            "translateX": 0,
+          },
+          {
+            "translateY": -2,
+          },
+        ],
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;

@@ -10,6 +10,7 @@ interface SquareProps {
   onPress: () => void;
   squareSize: number;
   winner: PlayerMark | null;
+  testID?: string;
 }
 
 const Square: React.FC<SquareProps> = ({
@@ -17,6 +18,7 @@ const Square: React.FC<SquareProps> = ({
   squareSize,
   winner,
   onPress,
+  testID = '',
 }) => {
   const [animation] = useState(new Animated.Value(0));
   const [activePlayerMark, setActivePlayerMark] = useState<PlayerMark>('');
@@ -33,7 +35,10 @@ const Square: React.FC<SquareProps> = ({
   };
 
   return (
-    <TouchableOpacity disabled={!!winner} onPress={handleOnPress}>
+    <TouchableOpacity
+      testID={`Square${testID}.TouchableOpacity`}
+      disabled={!!winner}
+      onPress={handleOnPress}>
       <Animated.View style={getSquareStyle(squareSize, animation)}>
         <LottiePlayerMark
           activePlayerMark={activePlayerMark}

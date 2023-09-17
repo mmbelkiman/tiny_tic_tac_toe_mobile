@@ -7,7 +7,7 @@ import {
   checkRows,
   createInitialBoard,
   WinnerResult,
-} from './utils';
+} from '../utils';
 
 describe('Game Utils', () => {
   describe('checkRows', () => {

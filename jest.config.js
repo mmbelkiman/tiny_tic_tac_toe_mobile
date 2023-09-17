@@ -16,7 +16,7 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(jest-)?@react-native|@react-navigation|@storybook|@unimodules|expo-|react-native|d3-|internmap|@miblanchard|@gorhom)',
   ],
-  testMatch: ['**/?(*.)+(test).ts'],
+  testMatch: ['**/?(*.)+(test).ts', '**/?(*.)+(spec).tsx'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
   testPathIgnorePatterns: ['/node_modules/', '/android/', '/ios/', '/coverage'],
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
