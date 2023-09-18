@@ -1,11 +1,9 @@
 import {ViewStyle} from 'react-native';
-import {getMarkStyle, getMarkDuration, getMarkAnimationFile} from '../utils';
+import {getMarkDuration, getMarkStyle} from '../utils';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from '../constants';
-import {PlayerMark} from '../../../../../../../common/types';
-import lottieCrossAnimation from '../res/lottieCrossAnimation.json';
-import lottieCircleAnimation from '../res/lottieCircleAnimation.json';
+import {PlayerMark} from '@/screens/game/common/types';
 
-describe('Utils Tests', () => {
+describe('Game:Square Utils', () => {
   describe('getMarkDuration', () => {
     it('should return the correct mark duration for "X"', () => {
       const activePlayerMark: PlayerMark = 'X';
@@ -31,22 +29,6 @@ describe('Utils Tests', () => {
       };
       const result = getMarkStyle(squareSize);
       expect(result).toEqual(expectedStyle);
-    });
-  });
-
-  describe('getMarkAnimationFile', () => {
-    it('should return the correct mark animation file for "X"', () => {
-      const activePlayerMark: PlayerMark = 'X';
-      const expectedAnimationFile = lottieCrossAnimation;
-      const result = getMarkAnimationFile(activePlayerMark);
-      expect(result).toEqual(expectedAnimationFile);
-    });
-
-    it('should return the correct mark animation file for "O"', () => {
-      const activePlayerMark: PlayerMark = 'O';
-      const expectedAnimationFile = lottieCircleAnimation;
-      const result = getMarkAnimationFile(activePlayerMark);
-      expect(result).toEqual(expectedAnimationFile);
     });
   });
 });

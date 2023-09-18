@@ -1,2 +1,3 @@
-export const BORDER_COLOR = '#00000022';
-export const BACKGROUND_COLOR = '#33333311';
+export const BORDER_COLOR = '#fff';
+export const BORDER_WIDTH = 2;
+export const BACKGROUND_COLOR = '#00000011';

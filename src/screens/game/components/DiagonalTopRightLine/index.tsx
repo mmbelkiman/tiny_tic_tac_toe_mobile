@@ -29,7 +29,7 @@ const DiagonalTopRightLine: React.FC<DiagonalTopRightLineProps> = ({
       playSizeAnimation(heightAnimation, height);
       playShakeAnimation(shakeAnimation);
     }
-  }, [opacityAnimation, heightAnimation, shakeAnimation, height]);
+  }, [height, heightAnimation, opacityAnimation, shakeAnimation, winner]);
 
   if (winner === '') {
     return null;

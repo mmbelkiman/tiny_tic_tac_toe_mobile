@@ -10,14 +10,51 @@ module.exports = {
     '!**/node_modules/**',
   ],
   coverageDirectory: './coverage',
-  verbose: true,
   collectCoverage: true,
-  preset: 'react-native',
-  transformIgnorePatterns: [
-    'node_modules/(?!(jest-)?@react-native|@react-navigation|@storybook|@unimodules|expo-|react-native|d3-|internmap|@miblanchard|@gorhom)',
+  verbose: true,
+  projects: [
+    {
+      transformIgnorePatterns: [
+        'node_modules/(?!(jest-)?@react-native|@react-navigation|@storybook|@unimodules|expo-|react-native|d3-|internmap|@miblanchard|@gorhom)',
+      ],
+      moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
+      testPathIgnorePatterns: [
+        '/node_modules/',
+        '/android/',
+        '/ios/',
+        '/coverage',
+      ],
+      setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+      displayName: 'UNIT',
+      testMatch: ['**/?(*.)+(spec).ts'],
+      rootDir: './',
+      cache: true,
+      preset: 'react-native',
+      roots: ['<rootDir>'],
+      moduleNameMapper: {
+        '@/(.*)': '<rootDir>/src/$1',
+      },
+    },
+    {
+      displayName: 'E2E',
+      transformIgnorePatterns: [
+        'node_modules/(?!(jest-)?@react-native|@react-navigation|@storybook|@unimodules|expo-|react-native|d3-|internmap|@miblanchard|@gorhom)',
+      ],
+      moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
+      testPathIgnorePatterns: [
+        '/node_modules/',
+        '/android/',
+        '/ios/',
+        '/coverage',
+      ],
+      setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+      testMatch: ['**/?(*.)+(test).ts'],
+      preset: 'react-native',
+      rootDir: './',
+      roots: ['<rootDir>'],
+      moduleNameMapper: {
+        '@/(.*)': '<rootDir>/src/$1',
+      },
+    },
   ],
-  testMatch: ['**/?(*.)+(test).ts', '**/?(*.)+(spec).tsx'],
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
-  testPathIgnorePatterns: ['/node_modules/', '/android/', '/ios/', '/coverage'],
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
 };

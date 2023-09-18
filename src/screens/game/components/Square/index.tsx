@@ -1,6 +1,6 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Animated, TouchableOpacity} from 'react-native';
-import {PlayerMark} from '../../../../common/types';
+import {PlayerMark} from '@/screens/game/common/types';
 import {playShakeAnimation} from './animations';
 import LottiePlayerMark from './components/lottiePlayerMark';
 import {getSquareStyle} from './utils';

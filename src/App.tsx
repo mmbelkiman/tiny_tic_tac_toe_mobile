@@ -6,16 +6,27 @@ type GameState = 'STOPPED' | 'RUNNING';
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>('STOPPED');
+  const [boardSize, setBoardSize] = useState(3);
 
   const onPressStart = () => {
     setGameState('RUNNING');
   };
 
+  const onPressBack = () => {
+    setGameState('STOPPED');
+  };
+
   if (gameState === 'STOPPED') {
-    return <Menu onPressStart={onPressStart} />;
+    return (
+      <Menu
+        boardSize={boardSize}
+        setBoardSize={setBoardSize}
+        onPressStart={onPressStart}
+      />
+    );
   }
 
-  return <Game boardSize={3} />;
+  return <Game boardSize={boardSize} onPressBack={onPressBack} />;
 };
 
 export default App;

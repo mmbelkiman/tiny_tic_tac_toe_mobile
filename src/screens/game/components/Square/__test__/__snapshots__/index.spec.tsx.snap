@@ -40,9 +40,9 @@ exports[`Square Component renders correctly with a winner 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "#33333311",
-        "borderColor": "#00000022",
-        "borderWidth": 1,
+        "backgroundColor": "#00000011",
+        "borderColor": "#fff",
+        "borderWidth": 2,
         "height": 100,
         "transform": [
           {
@@ -99,9 +99,9 @@ exports[`Square Component renders correctly with playerMark "O" and squareSize 3
     collapsable={false}
     style={
       {
-        "backgroundColor": "#33333311",
-        "borderColor": "#00000022",
-        "borderWidth": 1,
+        "backgroundColor": "#00000011",
+        "borderColor": "#fff",
+        "borderWidth": 2,
         "height": 32,
         "transform": [
           {
@@ -158,9 +158,9 @@ exports[`Square Component renders correctly with playerMark "X" and squareSize 1
     collapsable={false}
     style={
       {
-        "backgroundColor": "#33333311",
-        "borderColor": "#00000022",
-        "borderWidth": 1,
+        "backgroundColor": "#00000011",
+        "borderColor": "#fff",
+        "borderWidth": 2,
         "height": 100,
         "transform": [
           {
@@ -217,9 +217,9 @@ exports[`Square Component renders correctly without winner and playerMark 1`] = 
     collapsable={false}
     style={
       {
-        "backgroundColor": "#33333311",
-        "borderColor": "#00000022",
-        "borderWidth": 1,
+        "backgroundColor": "#00000011",
+        "borderColor": "#fff",
+        "borderWidth": 2,
         "height": 100,
         "transform": [
           {

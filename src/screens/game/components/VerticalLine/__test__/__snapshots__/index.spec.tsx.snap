@@ -5,7 +5,7 @@ exports[`VerticalLine Component should match the snapshot with a winner 1`] = `
   collapsable={false}
   style={
     {
-      "backgroundColor": "#D80E0D",
+      "backgroundColor": "#FF4B3E",
       "borderRadius": 10,
       "height": "90%",
       "left": 50,

@@ -10,7 +10,7 @@ import {
   getStraightLineSize,
 } from '../utils';
 
-describe('WinnerLine utils', () => {
+describe('Game:WinnerLine utils', () => {
   const SQUARE_SIZE = 100;
   const BOARD_SIZE = 10;
 

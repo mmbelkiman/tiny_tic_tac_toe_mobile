@@ -6,7 +6,7 @@ exports[`HorizontalLine Component should match the snapshot with a winner 1`] = 
   style={
     {
       "alignSelf": "center",
-      "backgroundColor": "#D80E0D",
+      "backgroundColor": "#FF4B3E",
       "borderRadius": 10,
       "height": 0,
       "opacity": 0,
