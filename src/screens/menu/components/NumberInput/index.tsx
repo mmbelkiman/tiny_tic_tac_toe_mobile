@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import styles from './styles';
 
 interface NumberInputProps {
   value: number;
   minValue: number;
   maxValue: number;
   onChangeValue: (newValue: number) => void;
+  testID?: string;
 }
 
 const NumberInput: React.FC<NumberInputProps> = ({
@@ -13,6 +15,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
   minValue,
   maxValue,
   onChangeValue,
+  testID = '',
 }) => {
   const [inputValue, setInputValue] = useState(value.toString());
 
@@ -29,24 +32,19 @@ const NumberInput: React.FC<NumberInputProps> = ({
   };
 
   return (
-    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-      <TouchableOpacity onPress={handleMinusPress}>
-        <Text style={{fontSize: 30}}>[-]</Text>
+    <View style={styles.container}>
+      <TouchableOpacity
+        testID={`NumberInput${testID}.TouchableOpacity.minus`}
+        onPress={handleMinusPress}>
+        <Text style={styles.textButton}>[-]</Text>
       </TouchableOpacity>
-      <View
-        style={{
-          minWidth: 110,
-          height: 50,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Text
-          style={{
-            fontSize: 32,
-          }}>{`${inputValue}x${inputValue}`}</Text>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>{`${inputValue}x${inputValue}`}</Text>
       </View>
-      <TouchableOpacity onPress={handlePlusPress}>
-        <Text style={{fontSize: 30}}>[+]</Text>
+      <TouchableOpacity
+        testID={`NumberInput${testID}.TouchableOpacity.plus`}
+        onPress={handlePlusPress}>
+        <Text style={styles.textButton}>[+]</Text>
       </TouchableOpacity>
     </View>
   );

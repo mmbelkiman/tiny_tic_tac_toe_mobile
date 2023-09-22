@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu component renders correctly with initial board size 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "marginRight": 34,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 6,
+          "top": 24,
+        }
+      }
+    >
+      Tiny 🤏
+    </Text>
+    <Text
+      style={
+        {
+          "color": "#FFF",
+          "fontSize": 24,
+          "left": 0,
+          "textShadowColor": "black",
+          "textShadowOffset": {
+            "height": 2,
+            "width": 2,
+          },
+          "textShadowRadius": 1,
+          "top": 25,
+        }
+      }
+    >
+      TIC 
+    </Text>
+    <Text
+      style={
+        {
+          "fontSize": 30,
+          "left": 5,
+          "position": "absolute",
+          "top": 60,
+        }
+      }
+    >
+      TAC
+    </Text>
+    <Text
+      style={
+        {
+          "color": "#EEE",
+          "fontSize": 60,
+          "left": 10,
+          "marginTop": 40,
+          "textShadowColor": "black",
+          "textShadowOffset": {
+            "height": 2,
+            "width": 2,
+          },
+          "textShadowRadius": 1,
+        }
+      }
+    >
+      TOE
+    </Text>
+  </View>
+  <Text
+    style={
+      {
+        "color": "#363732",
+        "fontSize": 20,
+        "paddingTop": 30,
+      }
+    }
+  >
+    Board Size
+  </Text>
+  <NumberInput
+    maxValue={10}
+    minValue={3}
+    onChangeValue={[Function]}
+    value={3}
+  />
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "marginTop": 50,
+        "opacity": 1,
+      }
+    }
+    testID="Menu.TouchableOpacity.play"
+  >
+    <Text
+      style={
+        {
+          "color": "#364732",
+          "fontSize": 38,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      PLAY
+    </Text>
+  </View>
+</View>
+`;

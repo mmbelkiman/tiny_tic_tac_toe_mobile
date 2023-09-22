@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo component renders correctly 1`] = `
+<View
+  style={
+    {
+      "marginRight": 34,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "fontSize": 6,
+        "top": 24,
+      }
+    }
+  >
+    Tiny 🤏
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#FFF",
+        "fontSize": 24,
+        "left": 0,
+        "textShadowColor": "black",
+        "textShadowOffset": {
+          "height": 2,
+          "width": 2,
+        },
+        "textShadowRadius": 1,
+        "top": 25,
+      }
+    }
+  >
+    TIC 
+  </Text>
+  <Text
+    style={
+      {
+        "fontSize": 30,
+        "left": 5,
+        "position": "absolute",
+        "top": 60,
+      }
+    }
+  >
+    TAC
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#EEE",
+        "fontSize": 60,
+        "left": 10,
+        "marginTop": 40,
+        "textShadowColor": "black",
+        "textShadowOffset": {
+          "height": 2,
+          "width": 2,
+        },
+        "textShadowRadius": 1,
+      }
+    }
+  >
+    TOE
+  </Text>
+</View>
+`;

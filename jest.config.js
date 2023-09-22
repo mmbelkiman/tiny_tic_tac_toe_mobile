@@ -26,7 +26,7 @@ module.exports = {
       ],
       setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
       displayName: 'UNIT',
-      testMatch: ['**/?(*.)+(spec).ts'],
+      testMatch: ['**/?(*.)+(spec).{js,jsx,ts,tsx}'],
       rootDir: './',
       cache: true,
       preset: 'react-native',
