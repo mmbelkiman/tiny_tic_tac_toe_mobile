@@ -1,6 +1,6 @@
 import {Animated} from 'react-native';
-import {getPlayerColor} from '@game/common/utils';
-import {PlayerMark} from '@game/common/types';
+import {getPlayerColor} from '../../../../common/utils';
+import {PlayerMark} from '../../../../common/types';
 import styles from './styles';
 
 export const getShakeStyle = (
@@ -9,10 +9,10 @@ export const getShakeStyle = (
   height: number,
 ) => ({
   transform: [
-    {translateX: -length / 2},
-    {translateY: -height / 2},
-    {rotate: '45deg'},
     {translateX: length / 2},
+    {translateY: -height / 2},
+    {rotate: '-45deg'},
+    {translateX: -length / 2},
     {translateY: height / 2},
     {
       translateY: animation.interpolate({
@@ -27,7 +27,7 @@ export const getLineStyle = ({
   winner,
   length,
   height,
-  left,
+  right,
   heightAnimation,
   opacityAnimation,
   shakeAnimation,
@@ -35,7 +35,7 @@ export const getLineStyle = ({
   winner: PlayerMark;
   length: number;
   height: number;
-  left: number;
+  right: number;
   heightAnimation: Animated.Value;
   opacityAnimation: Animated.Value;
   shakeAnimation: Animated.Value;
@@ -44,7 +44,7 @@ export const getLineStyle = ({
   {
     backgroundColor: getPlayerColor(winner),
     width: length,
-    left: left,
+    right: right,
     height: heightAnimation,
     opacity: opacityAnimation,
   },

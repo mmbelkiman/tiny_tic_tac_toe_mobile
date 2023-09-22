@@ -4,19 +4,19 @@ import {
   playOpacityAnimation,
   playShakeAnimation,
   playSizeAnimation,
-} from '@game/common/animations';
+} from '../../../../common/animations';
 import {getLineStyle} from './utils';
-import {PlayerMark} from '@game/common/types';
+import {PlayerMark} from '../../../../common/types';
 
-interface DiagonalTopRightLineProps {
-  length: number;
+interface HorizontalLineProps {
   height: number;
+  positionY: number;
   winner: PlayerMark;
 }
 
-const DiagonalTopRightLine: React.FC<DiagonalTopRightLineProps> = ({
-  length,
+const HorizontalLine: React.FC<HorizontalLineProps> = ({
   height,
+  positionY,
   winner,
 }) => {
   const opacityAnimation = useRef(new Animated.Value(0)).current;
@@ -35,17 +35,15 @@ const DiagonalTopRightLine: React.FC<DiagonalTopRightLineProps> = ({
 
   return (
     <Animated.View
-      style={getLineStyle({
+      style={getLineStyle(
         winner,
-        length,
-        height,
-        right: height,
+        positionY,
         heightAnimation,
         opacityAnimation,
         shakeAnimation,
-      })}
+      )}
     />
   );
 };
 
-export default DiagonalTopRightLine;
+export default HorizontalLine;

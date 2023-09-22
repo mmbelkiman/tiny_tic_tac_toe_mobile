@@ -4,30 +4,30 @@ import {
   playOpacityAnimation,
   playShakeAnimation,
   playSizeAnimation,
-} from '@game/common/animations';
+} from '../../../../common/animations';
 import {getLineStyle} from './utils';
-import {PlayerMark} from '@game/common/types';
+import {PlayerMark} from '../../../../common/types';
 
-interface HorizontalLineProps {
-  height: number;
-  positionY: number;
+interface VerticalLineProps {
+  width: number;
+  positionX: number;
   winner: PlayerMark;
 }
 
-const HorizontalLine: React.FC<HorizontalLineProps> = ({
-  height,
-  positionY,
+const VerticalLine: React.FC<VerticalLineProps> = ({
+  width,
+  positionX,
   winner,
 }) => {
   const opacityAnimation = useRef(new Animated.Value(0)).current;
-  const heightAnimation = useRef(new Animated.Value(0)).current;
+  const widthAnimation = useRef(new Animated.Value(0)).current;
   const shakeAnimation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     playOpacityAnimation(opacityAnimation);
-    playSizeAnimation(heightAnimation, height);
+    playSizeAnimation(widthAnimation, width);
     playShakeAnimation(shakeAnimation);
-  }, [height, heightAnimation, opacityAnimation, shakeAnimation, winner]);
+  }, [opacityAnimation, shakeAnimation, width, widthAnimation, winner]);
 
   if (winner === '') {
     return null;
@@ -37,8 +37,8 @@ const HorizontalLine: React.FC<HorizontalLineProps> = ({
     <Animated.View
       style={getLineStyle(
         winner,
-        positionY,
-        heightAnimation,
+        positionX,
+        widthAnimation,
         opacityAnimation,
         shakeAnimation,
       )}
@@ -46,4 +46,4 @@ const HorizontalLine: React.FC<HorizontalLineProps> = ({
   );
 };
 
-export default HorizontalLine;
+export default VerticalLine;

@@ -2,15 +2,12 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {flex: 1},
-  gameContainer: {
-    flex: 1,
-    alignItems: 'center',
-  },
+
   status: {
     marginBottom: 10,
     fontSize: 24,
   },
-  board: {
+  gameCanvas: {
     flexDirection: 'column',
   },
   row: {

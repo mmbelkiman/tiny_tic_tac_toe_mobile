@@ -4,17 +4,17 @@ import {
   playOpacityAnimation,
   playShakeAnimation,
   playSizeAnimation,
-} from '@game/common/animations';
-import {PlayerMark} from '@game/common/types';
+} from '../../../../common/animations';
 import {getLineStyle} from './utils';
+import {PlayerMark} from '../../../../common/types';
 
-interface DiagonalTopLeftLineProps {
+interface DiagonalTopRightLineProps {
   length: number;
   height: number;
   winner: PlayerMark;
 }
 
-const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
+const DiagonalTopRightLine: React.FC<DiagonalTopRightLineProps> = ({
   length,
   height,
   winner,
@@ -39,7 +39,7 @@ const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
         winner,
         length,
         height,
-        left: height,
+        right: height,
         heightAnimation,
         opacityAnimation,
         shakeAnimation,
@@ -48,4 +48,4 @@ const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
   );
 };
 
-export default DiagonalTopLeftLine;
+export default DiagonalTopRightLine;

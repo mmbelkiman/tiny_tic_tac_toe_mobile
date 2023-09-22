@@ -1,8 +1,8 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
-import {PlayerMark} from '@game/common/types';
+import {PlayerMark} from '../../../../../../common/types';
 import {getColorFilters, getMarkDuration, getMarkStyle} from './utils';
-import lottieMarkAnimation from '@game/res/lottieMarkAnimation.json';
+import lottieMarkAnimation from '../../../../../../res/lottieMarkAnimation.json';
 
 interface LottieElementProps {
   activePlayerMark: PlayerMark;

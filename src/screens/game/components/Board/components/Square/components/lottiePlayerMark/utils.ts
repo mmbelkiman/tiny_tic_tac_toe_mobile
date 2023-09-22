@@ -1,9 +1,9 @@
 import {ViewStyle} from 'react-native';
-import {LottieColorObject, PlayerMark} from '@game/common/types';
+import {LottieColorObject, PlayerMark} from '../../../../../../common/types';
 
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from './constants';
-import {getPlayerColor} from '@game/common/utils';
-import {COLOR_TRANSPARENT} from '@game/common/constants';
+import {getPlayerColor} from '../../../../../../common/utils';
+import {COLOR_TRANSPARENT} from '../../../../../../common/constants';
 
 export const getMarkStyle = (squareSize: number): ViewStyle => {
   return {

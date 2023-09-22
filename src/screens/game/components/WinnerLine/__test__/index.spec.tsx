@@ -3,10 +3,10 @@ import renderer from 'react-test-renderer';
 import WinnerLine from '../index';
 
 // Mock inside components, just check if the correct one is rendered
-jest.mock('../../HorizontalLine', () => 'HorizontalLine');
-jest.mock('../../VerticalLine', () => 'VerticalLine');
-jest.mock('../../DiagonalTopLeftLine', () => 'DiagonalTopLeftLine');
-jest.mock('../../DiagonalTopRightLine', () => 'DiagonalTopRightLine');
+jest.mock('../components/HorizontalLine', () => 'HorizontalLine');
+jest.mock('../components/VerticalLine', () => 'VerticalLine');
+jest.mock('../components/DiagonalTopLeftLine', () => 'DiagonalTopLeftLine');
+jest.mock('../components/DiagonalTopRightLine', () => 'DiagonalTopRightLine');
 
 describe('WinnerLine Component', () => {
   it('should match snapshot when no winner', () => {

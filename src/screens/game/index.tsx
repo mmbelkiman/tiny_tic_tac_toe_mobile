@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Dimensions, SafeAreaView, View} from 'react-native';
 import Header from '@game/components/Header';
 import Score from '@game/components/Score';
+import Board from '@game/components/Board';
 import styles from './styles';
 import WinnerLine from './components/WinnerLine';
-import Square from './components/Square';
 import {calculateWinner, createInitialBoard} from './utils';
 import {PlayerMark, WinnerResult} from './common/types';
 
@@ -33,27 +33,8 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
     }
   }, [board, boardSize]);
 
-  const resetGame = () => {
-    setBoard([[]]);
-    setWinner({
-      winner: '',
-      direction: null,
-      position: null,
-    });
-  };
-
-  const handleSquareClick = (row: number, col: number) => {
-    if (board[row][col] || winner?.winner) {
-      return;
-    }
-
-    const newBoard = [...board.map(r => [...r])];
-    newBoard[row][col] = isXNext ? 'X' : 'O';
-    setBoard(newBoard);
-    setIsXNext(!isXNext);
-  };
-
   useEffect(() => {
+    //Verify winner
     const newWinner = calculateWinner(board, boardSize);
     if (newWinner.winner) {
       setWinner(newWinner);
@@ -64,6 +45,32 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
       }
     }
   }, [board, boardSize]);
+
+  const resetGame = () => {
+    setBoard([[]]);
+    setWinner({
+      winner: '',
+      direction: null,
+      position: null,
+    });
+  };
+
+  const handleOnTouchGameCanvas = () => {
+    if (winner.winner !== '') {
+      resetGame();
+    }
+  };
+
+  const handleSquareClick = (row: number, col: number) => {
+    if (board[row][col] || winner?.winner) {
+      return;
+    }
+
+    const newBoard = [...board];
+    newBoard[row][col] = isXNext ? 'X' : 'O';
+    setBoard(newBoard);
+    setIsXNext(!isXNext);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -76,36 +83,22 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
         crossWins={crossWins}
       />
 
-      <View
-        style={styles.gameContainer}
-        onTouchStart={() => {
-          if (winner.winner !== '') {
-            resetGame();
-          }
-        }}>
-        <View style={styles.board}>
-          {board.map((row, rowIndex) => (
-            <View key={rowIndex} style={styles.row}>
-              {row.map((square, colIndex) => (
-                <Square
-                  key={colIndex}
-                  playerMark={isXNext ? 'X' : 'O'}
-                  onPress={() => handleSquareClick(rowIndex, colIndex)}
-                  squareSize={squareSize}
-                  winner={winner?.winner || null}
-                />
-              ))}
-            </View>
-          ))}
+      <View onTouchStart={handleOnTouchGameCanvas} style={styles.gameCanvas}>
+        <Board
+          board={board}
+          nextPlayerMark={isXNext ? 'X' : 'O'}
+          squareSize={squareSize}
+          winnerPlayerMark={winner?.winner || null}
+          onClickSquare={handleSquareClick}
+        />
 
-          <WinnerLine
-            winnerMark={winner.winner}
-            boardPosition={winner.position}
-            squareSize={squareSize}
-            winnerResultDirection={winner.direction}
-            boardSize={boardSize}
-          />
-        </View>
+        <WinnerLine
+          winnerMark={winner.winner}
+          boardPosition={winner.position}
+          squareSize={squareSize}
+          winnerResultDirection={winner.direction}
+          boardSize={boardSize}
+        />
       </View>
     </SafeAreaView>
   );

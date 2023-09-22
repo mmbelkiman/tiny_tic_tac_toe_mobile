@@ -1,9 +1,9 @@
 import React from 'react';
 import {PlayerMark, WinnerResultDirection} from '@game/common/types';
-import HorizontalLine from '../HorizontalLine';
-import VerticalLine from '../VerticalLine';
-import DiagonalTopLeftLine from '../DiagonalTopLeftLine';
-import DiagonalTopRightLine from '../DiagonalTopRightLine';
+import HorizontalLine from './components/HorizontalLine';
+import VerticalLine from './components/VerticalLine';
+import DiagonalTopLeftLine from './components/DiagonalTopLeftLine';
+import DiagonalTopRightLine from './components/DiagonalTopRightLine';
 import {
   getDiagonalLineLength,
   getDiagonalLineSize,
