@@ -1,0 +1,1 @@
+export const COLOR_TRANSPARENT = '#00000000';

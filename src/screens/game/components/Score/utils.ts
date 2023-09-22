@@ -1,10 +1,7 @@
 import {LottieColorObject, PlayerMark} from '@game/common/types';
 import {getPlayerColor} from '@game/common/utils';
-import {
-  COLOR_TRANSPARENT,
-  TRANSPARENCY_AMOUNT,
-  TRANSPARENCY_ZERO_AMOUNT,
-} from './constants';
+import {TRANSPARENCY_AMOUNT, TRANSPARENCY_ZERO_AMOUNT} from './constants';
+import {COLOR_TRANSPARENT} from '@game/common/constants';
 
 export const getScoreText = (circleWins: number, crossWins: number) =>
   `${circleWins} - ${crossWins}`;

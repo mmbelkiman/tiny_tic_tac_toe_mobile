@@ -1,8 +1,7 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
-import {LottieColorObject, PlayerMark} from '@game/common/types';
-import {getMarkDuration, getMarkStyle} from './utils';
-import {getPlayerColor} from '@game/common/utils';
+import {PlayerMark} from '@game/common/types';
+import {getColorFilters, getMarkDuration, getMarkStyle} from './utils';
 import lottieMarkAnimation from '@game/res/lottieMarkAnimation.json';
 
 interface LottieElementProps {
@@ -18,24 +17,6 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
     return null;
   }
 
-  //TODO
-  const colors: Array<LottieColorObject> = [
-    {
-      keypath: 'Layer 1',
-      color:
-        activePlayerMark === 'X'
-          ? '#00000000'
-          : getPlayerColor(activePlayerMark),
-    },
-    {
-      keypath: 'Layer 2',
-      color:
-        activePlayerMark === 'O'
-          ? '#00000000'
-          : getPlayerColor(activePlayerMark),
-    },
-  ];
-
   return (
     <LottieView
       duration={getMarkDuration(activePlayerMark)}
@@ -43,7 +24,7 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
       source={lottieMarkAnimation}
       autoPlay={true}
       loop={false}
-      colorFilters={colors}
+      colorFilters={getColorFilters({activePlayerMark})}
     />
   );
 };

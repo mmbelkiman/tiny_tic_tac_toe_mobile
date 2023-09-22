@@ -1,5 +1,5 @@
 import {ViewStyle} from 'react-native';
-import {getMarkDuration, getMarkStyle} from '../utils';
+import {getColorFilters, getMarkDuration, getMarkStyle} from '../utils';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from '../constants';
 import {PlayerMark} from '@game/common/types';
 
@@ -29,6 +29,41 @@ describe('Game:Square Utils', () => {
       };
       const result = getMarkStyle(squareSize);
       expect(result).toEqual(expectedStyle);
+    });
+  });
+
+  describe('getColorFilters', () => {
+    it('should return the circle color filter', () => {
+      const activePlayerMark: PlayerMark = 'O';
+      const result = getColorFilters({activePlayerMark});
+      const expected = [
+        {
+          color: '#8390FA',
+          keypath: 'Layer 1',
+        },
+        {
+          color: '#00000000',
+          keypath: 'Layer 2',
+        },
+      ];
+
+      expect(result).toEqual(expected);
+    });
+    it('should return the circle cross filter', () => {
+      const activePlayerMark: PlayerMark = 'X';
+      const result = getColorFilters({activePlayerMark});
+      const expected = [
+        {
+          color: '#00000000',
+          keypath: 'Layer 1',
+        },
+        {
+          color: '#FF4B3E',
+          keypath: 'Layer 2',
+        },
+      ];
+
+      expect(result).toEqual(expected);
     });
   });
 });
