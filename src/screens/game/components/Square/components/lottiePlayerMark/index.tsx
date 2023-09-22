@@ -1,9 +1,9 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
-import {PlayerMark} from '@/screens/game/common/types';
+import {LottieColorObject, PlayerMark} from '@game/common/types';
 import {getMarkDuration, getMarkStyle} from './utils';
-import {getPlayerColor} from '@/common/utils';
-import lottieMarkAnimation from './res/lottieMarkAnimation.json';
+import {getPlayerColor} from '@game/common/utils';
+import lottieMarkAnimation from '@game/res/lottieMarkAnimation.json';
 
 interface LottieElementProps {
   activePlayerMark: PlayerMark;
@@ -16,10 +16,6 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
 }) => {
   if (activePlayerMark === '') {
     return null;
-  }
-  interface LottieColorObject {
-    keypath: string;
-    color: string;
   }
 
   //TODO

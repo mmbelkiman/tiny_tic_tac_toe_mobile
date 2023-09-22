@@ -1,6 +1,6 @@
 import {Animated} from 'react-native';
 import {PlayerMark} from '../../../../common/types';
-import {getPlayerColor} from '../../../../common/utils';
+import {getPlayerColor} from '../../common/utils';
 import styles from './styles';
 
 export const getShakeStyle = (

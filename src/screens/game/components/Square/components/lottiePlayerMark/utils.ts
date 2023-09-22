@@ -1,5 +1,5 @@
 import {ViewStyle} from 'react-native';
-import {PlayerMark} from '@/screens/game/common/types';
+import {PlayerMark} from '@game/common/types';
 
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from './constants';
 

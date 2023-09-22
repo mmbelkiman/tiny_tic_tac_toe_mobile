@@ -4,9 +4,9 @@ import {
   playOpacityAnimation,
   playShakeAnimation,
   playSizeAnimation,
-} from '@/common/animations';
+} from '@game/common/animations';
 import {getLineStyle} from './utils';
-import {PlayerMark} from '@/screens/game/common/types';
+import {PlayerMark} from '@game/common/types';
 
 interface VerticalLineProps {
   width: number;
@@ -24,11 +24,9 @@ const VerticalLine: React.FC<VerticalLineProps> = ({
   const shakeAnimation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (winner !== '') {
-      playOpacityAnimation(opacityAnimation);
-      playSizeAnimation(widthAnimation, width);
-      playShakeAnimation(shakeAnimation);
-    }
+    playOpacityAnimation(opacityAnimation);
+    playSizeAnimation(widthAnimation, width);
+    playShakeAnimation(shakeAnimation);
   }, [opacityAnimation, shakeAnimation, width, widthAnimation, winner]);
 
   if (winner === '') {

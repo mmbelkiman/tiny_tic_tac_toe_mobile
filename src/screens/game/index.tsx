@@ -5,7 +5,8 @@ import WinnerLine from './components/WinnerLine';
 import Square from './components/Square';
 import {calculateWinner, createInitialBoard} from './utils';
 import {PlayerMark, WinnerResult} from './common/types';
-import Header from '@/screens/game/components/Header';
+import Header from '@game/components/Header';
+import Score from '@game/components/Score';
 
 interface Props {
   boardSize: number;
@@ -66,12 +67,13 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Header
-        winner={winner.winner}
+      <Header onPressBack={onPressBack} />
+
+      <Score
+        winnerPlayerMark={winner.winner}
         currentPlayer={isXNext ? 'X' : 'O'}
         circleWins={circleWins}
         crossWins={crossWins}
-        onPressBack={onPressBack}
       />
 
       <View

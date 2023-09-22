@@ -1,7 +1,7 @@
 import {Animated} from 'react-native';
-import {PlayerMark} from '../../../../common/types';
-import {getPlayerColor} from '../../../../common/utils';
 import styles from './styles';
+import {PlayerMark} from '@game/common/types';
+import {getPlayerColor} from '@game/common/utils';
 
 export const getShakeStyle = (animation: Animated.Value) => ({
   transform: [

@@ -1,7 +1,7 @@
 import {ViewStyle} from 'react-native';
 import {getMarkDuration, getMarkStyle} from '../utils';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from '../constants';
-import {PlayerMark} from '@/screens/game/common/types';
+import {PlayerMark} from '@game/common/types';
 
 describe('Game:Square Utils', () => {
   describe('getMarkDuration', () => {

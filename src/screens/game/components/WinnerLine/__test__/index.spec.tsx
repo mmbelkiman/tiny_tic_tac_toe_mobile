@@ -59,7 +59,7 @@ describe('WinnerLine Component', () => {
       .create(
         <WinnerLine
           winnerMark="X"
-          boardPosition={null}
+          boardPosition={0}
           squareSize={100}
           winnerResultDirection="diagonalTopLeft"
           boardSize={5}

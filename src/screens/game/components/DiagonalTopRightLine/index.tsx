@@ -4,9 +4,9 @@ import {
   playOpacityAnimation,
   playShakeAnimation,
   playSizeAnimation,
-} from '@/common/animations';
+} from '@game/common/animations';
 import {getLineStyle} from './utils';
-import {PlayerMark} from '@/screens/game/common/types';
+import {PlayerMark} from '@game/common/types';
 
 interface DiagonalTopRightLineProps {
   length: number;
@@ -24,11 +24,9 @@ const DiagonalTopRightLine: React.FC<DiagonalTopRightLineProps> = ({
   const shakeAnimation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (winner !== '') {
-      playOpacityAnimation(opacityAnimation);
-      playSizeAnimation(heightAnimation, height);
-      playShakeAnimation(shakeAnimation);
-    }
+    playOpacityAnimation(opacityAnimation);
+    playSizeAnimation(heightAnimation, height);
+    playShakeAnimation(shakeAnimation);
   }, [height, heightAnimation, opacityAnimation, shakeAnimation, winner]);
 
   if (winner === '') {

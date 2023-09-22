@@ -16,6 +16,8 @@ module.exports = {
         ],
         alias: {
           '^@/(.+)': './src/\\1',
+          '^@menu/(.+)': './src/screens/menu/\\1',
+          '^@game/(.+)': './src/screens/game/\\1',
         },
         cwd: 'packagejson',
       },

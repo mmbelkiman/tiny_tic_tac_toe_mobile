@@ -5,6 +5,8 @@
     "rootDir": "./",
     "paths": {
       "@/*": ["./src/*"],
+      "@menu/*": ["./src/screens/menu/*"],
+      "@game/*": ["./src/screens/game/*"],
     }
   },
   "exclude": ["node_modules"],

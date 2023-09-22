@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import DiagonalTopLeftLine from '../index';
 
-jest.mock('@/common/animations', () => ({
+jest.mock('@game/common/animations', () => ({
   playOpacityAnimation: jest.fn(),
   playSizeAnimation: jest.fn(),
   playShakeAnimation: jest.fn(),

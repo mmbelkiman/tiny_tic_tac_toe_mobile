@@ -1,4 +1,4 @@
-import {PlayerMark, WinnerResult} from '@/screens/game/common/types';
+import {PlayerMark, WinnerResult} from '@game/common/types';
 
 export const checkRows = (
   squares: PlayerMark[][],

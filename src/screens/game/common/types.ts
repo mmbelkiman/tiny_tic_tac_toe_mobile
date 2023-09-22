@@ -11,3 +11,8 @@ export interface WinnerResult {
   direction: WinnerResultDirection | null;
   position: number | null;
 }
+
+export interface LottieColorObject {
+  keypath: string;
+  color: string;
+}
