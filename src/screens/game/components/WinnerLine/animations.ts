@@ -1,6 +1,6 @@
 import {Animated} from 'react-native';
 
-export const playShakeAnimation = (animation: Animated.Value) => {
+export const playShakeAnimation = (animation: Animated.Value) =>
   Animated.sequence([
     Animated.timing(animation, {
       toValue: 1,
@@ -13,20 +13,17 @@ export const playShakeAnimation = (animation: Animated.Value) => {
       useNativeDriver: false,
     }),
   ]).start();
-};
 
-export const playSizeAnimation = (animation: Animated.Value, size: number) => {
+export const playSizeAnimation = (animation: Animated.Value, size: number) =>
   Animated.timing(animation, {
     toValue: size,
     duration: 80,
     useNativeDriver: false,
   }).start();
-};
 
-export const playOpacityAnimation = (animation: Animated.Value) => {
+export const playOpacityAnimation = (animation: Animated.Value) =>
   Animated.timing(animation, {
     toValue: 0.6,
     duration: 90,
     useNativeDriver: false,
   }).start();
-};

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import {Animated} from 'react-native';
 import {PlayerMark, WinnerResultDirection} from '@game/common/types';
 import HorizontalLine from './components/HorizontalLine';
 import VerticalLine from './components/VerticalLine';
@@ -10,6 +11,12 @@ import {
   getStraightLinePosition,
   getStraightLineSize,
 } from './utils';
+import {
+  playOpacityAnimation,
+  playShakeAnimation,
+  playSizeAnimation,
+} from '@game/components/WinnerLine/animations';
+import {getPlayerColor} from '@game/common/utils';
 
 interface WinnerLineProps {
   winnerMark: PlayerMark;
@@ -26,6 +33,44 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   winnerResultDirection,
   boardSize,
 }) => {
+  const [lineSize, setLineSize] = useState(0);
+  const opacityAnimation = useRef(new Animated.Value(0)).current;
+  const sizeAnimation = useRef(new Animated.Value(0)).current;
+  const shakeAnimation = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    //Reset animations when board is reset
+    if (winnerMark === '') {
+      opacityAnimation.resetAnimation();
+      sizeAnimation.resetAnimation();
+      shakeAnimation.resetAnimation();
+      setLineSize(0);
+    }
+  }, [sizeAnimation, opacityAnimation, shakeAnimation, winnerMark]);
+
+  useEffect(() => {
+    //Set the line size
+    if (winnerResultDirection === null) {
+      return;
+    }
+    if (
+      winnerResultDirection === 'horizontal' ||
+      winnerResultDirection === 'vertical'
+    ) {
+      setLineSize(getStraightLineSize(squareSize));
+    }
+    setLineSize(getDiagonalLineSize(squareSize));
+  }, [squareSize, winnerResultDirection]);
+
+  useEffect(() => {
+    //Run animations when has a winner
+    if (winnerMark !== '') {
+      playOpacityAnimation(opacityAnimation);
+      playSizeAnimation(sizeAnimation, lineSize);
+      playShakeAnimation(shakeAnimation);
+    }
+  }, [sizeAnimation, opacityAnimation, shakeAnimation, lineSize, winnerMark]);
+
   if (boardPosition === null) {
     return null;
   }
@@ -33,9 +78,11 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   if (winnerResultDirection === 'horizontal') {
     return (
       <HorizontalLine
-        winner={winnerMark}
-        height={getStraightLineSize(squareSize)}
+        color={getPlayerColor(winnerMark)}
         positionY={getStraightLinePosition(squareSize, boardPosition)}
+        opacityAnimation={opacityAnimation}
+        shakeAnimation={shakeAnimation}
+        heightAnimation={sizeAnimation}
       />
     );
   }
@@ -43,9 +90,12 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   if (winnerResultDirection === 'vertical') {
     return (
       <VerticalLine
-        winner={winnerMark}
-        width={getStraightLineSize(squareSize)}
+        width={lineSize}
+        color={getPlayerColor(winnerMark)}
         positionX={getStraightLinePosition(squareSize, boardPosition)}
+        opacityAnimation={opacityAnimation}
+        shakeAnimation={shakeAnimation}
+        widthAnimation={sizeAnimation}
       />
     );
   }
@@ -53,18 +103,23 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   if (winnerResultDirection === 'diagonalTopLeft') {
     return (
       <DiagonalTopLeftLine
-        winner={winnerMark}
-        height={getDiagonalLineSize(squareSize)}
+        height={lineSize}
+        color={getPlayerColor(winnerMark)}
         length={getDiagonalLineLength(boardSize, squareSize)}
+        opacityAnimation={opacityAnimation}
+        shakeAnimation={shakeAnimation}
+        heightAnimation={sizeAnimation}
       />
     );
   }
-
   return (
     <DiagonalTopRightLine
-      winner={winnerMark}
-      height={getDiagonalLineSize(squareSize)}
+      height={lineSize}
+      color={getPlayerColor(winnerMark)}
       length={getDiagonalLineLength(boardSize, squareSize)}
+      opacityAnimation={opacityAnimation}
+      shakeAnimation={shakeAnimation}
+      heightAnimation={sizeAnimation}
     />
   );
 };

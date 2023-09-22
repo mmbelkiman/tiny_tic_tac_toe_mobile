@@ -1,42 +1,29 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import {Animated} from 'react-native';
-import {
-  playOpacityAnimation,
-  playShakeAnimation,
-  playSizeAnimation,
-} from '../../../../common/animations';
-import {PlayerMark} from '../../../../common/types';
 import {getLineStyle} from './utils';
+import {PlayerMark} from '@game/common/types';
 
 interface DiagonalTopLeftLineProps {
   length: number;
   height: number;
-  winner: PlayerMark;
+  color: string;
+  heightAnimation: Animated.Value;
+  opacityAnimation: Animated.Value;
+  shakeAnimation: Animated.Value;
 }
 
 const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
   length,
   height,
-  winner,
+  color,
+  opacityAnimation,
+  shakeAnimation,
+  heightAnimation,
 }) => {
-  const opacityAnimation = useRef(new Animated.Value(0)).current;
-  const heightAnimation = useRef(new Animated.Value(0)).current;
-  const shakeAnimation = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    playOpacityAnimation(opacityAnimation);
-    playSizeAnimation(heightAnimation, height);
-    playShakeAnimation(shakeAnimation);
-  }, [height, heightAnimation, opacityAnimation, shakeAnimation, winner]);
-
-  if (winner === '') {
-    return null;
-  }
-
   return (
     <Animated.View
       style={getLineStyle({
-        winner,
+        color,
         length,
         height,
         left: height,

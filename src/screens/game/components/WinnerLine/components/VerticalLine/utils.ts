@@ -1,6 +1,4 @@
 import {Animated} from 'react-native';
-import {getPlayerColor} from '../../../../common/utils';
-import {PlayerMark} from '../../../../common/types';
 import styles from './styles';
 
 export const getShakeStyle = (animation: Animated.Value) => ({
@@ -15,7 +13,7 @@ export const getShakeStyle = (animation: Animated.Value) => ({
 });
 
 export const getLineStyle = (
-  winner: PlayerMark,
+  color: string,
   positionX: number,
   widthAnimation: Animated.Value,
   opacityAnimation: Animated.Value,
@@ -23,7 +21,7 @@ export const getLineStyle = (
 ) => [
   styles.line,
   {
-    backgroundColor: getPlayerColor(winner),
+    backgroundColor: color,
     width: widthAnimation,
     opacity: opacityAnimation,
     left: positionX,
