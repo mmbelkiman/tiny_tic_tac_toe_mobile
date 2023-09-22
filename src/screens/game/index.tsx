@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Dimensions, SafeAreaView, View} from 'react-native';
+import {Dimensions, SafeAreaView, View} from 'react-native';
+import Header from '@game/components/Header';
+import Score from '@game/components/Score';
 import styles from './styles';
 import WinnerLine from './components/WinnerLine';
 import Square from './components/Square';
 import {calculateWinner, createInitialBoard} from './utils';
 import {PlayerMark, WinnerResult} from './common/types';
-import Header from '@game/components/Header';
-import Score from '@game/components/Score';
 
 interface Props {
   boardSize: number;
@@ -66,7 +66,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
   }, [board, boardSize]);
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={styles.container}>
       <Header onPressBack={onPressBack} />
 
       <Score
@@ -77,7 +77,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
       />
 
       <View
-        style={styles.container}
+        style={styles.gameContainer}
         onTouchStart={() => {
           if (winner.winner !== '') {
             resetGame();
