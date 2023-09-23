@@ -8,6 +8,12 @@ jest.mock('../components/VerticalLine', () => 'VerticalLine');
 jest.mock('../components/DiagonalTopLeftLine', () => 'DiagonalTopLeftLine');
 jest.mock('../components/DiagonalTopRightLine', () => 'DiagonalTopRightLine');
 
+jest.mock('../animations', () => ({
+  playOpacityAnimation: jest.fn(),
+  playSizeAnimation: jest.fn(),
+  playShakeAnimation: jest.fn(),
+}));
+
 describe('WinnerLine Component', () => {
   it('should match snapshot when no winner', () => {
     const tree = renderer

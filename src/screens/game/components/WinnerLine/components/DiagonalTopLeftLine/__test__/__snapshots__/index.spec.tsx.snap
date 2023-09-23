@@ -5,7 +5,7 @@ exports[`DiagonalTopLeftLine Component should match the snapshot with a winner 1
   collapsable={false}
   style={
     {
-      "backgroundColor": "#FF4B3E",
+      "backgroundColor": "red",
       "borderRadius": 10,
       "height": 0,
       "left": 20,
@@ -37,4 +37,39 @@ exports[`DiagonalTopLeftLine Component should match the snapshot with a winner 1
 />
 `;
 
-exports[`DiagonalTopLeftLine Component should match the snapshot without a winner 1`] = `null`;
+exports[`DiagonalTopLeftLine Component should match the snapshot without a winner 1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "backgroundColor": "blue",
+      "borderRadius": 10,
+      "height": 0,
+      "left": 10,
+      "opacity": 0,
+      "position": "absolute",
+      "transform": [
+        {
+          "translateX": -100,
+        },
+        {
+          "translateY": -5,
+        },
+        {
+          "rotate": "45deg",
+        },
+        {
+          "translateX": 100,
+        },
+        {
+          "translateY": 5,
+        },
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": 200,
+    }
+  }
+/>
+`;
