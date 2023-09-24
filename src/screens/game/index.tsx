@@ -3,9 +3,10 @@ import {Dimensions, SafeAreaView, View} from 'react-native';
 import Header from '@game/components/Header';
 import Score from '@game/components/Score';
 import Board from '@game/components/Board';
+import {COLOR_PLAYER_O, COLOR_PLAYER_X} from '@game/common/constants';
 import styles from './styles';
 import WinnerLine from './components/WinnerLine';
-import {calculateWinner, createInitialBoard} from './utils';
+import {calculateWinner, createInitialBoard, getPlayerColor} from './utils';
 import {PlayerMark, WinnerResult} from './common/types';
 
 interface Props {
@@ -19,7 +20,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
   const [circleWins, setCircleWins] = useState(0);
   const [crossWins, setCrossWins] = useState(0);
   const [board, setBoard] = useState<PlayerMark[][]>([[]]);
-  const [isXNext, setIsXNext] = useState(true);
+  const [isCircleNext, setIsCircleNext] = useState(true);
   const [winner, setWinner] = useState<WinnerResult>({
     winner: '',
     direction: null,
@@ -67,9 +68,9 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
     }
 
     const newBoard = [...board];
-    newBoard[row][col] = isXNext ? 'X' : 'O';
+    newBoard[row][col] = isCircleNext ? 'O' : 'X';
     setBoard(newBoard);
-    setIsXNext(!isXNext);
+    setIsCircleNext(!isCircleNext);
   };
 
   return (
@@ -78,22 +79,26 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
 
       <Score
         winnerPlayerMark={winner.winner}
-        currentPlayer={isXNext ? 'X' : 'O'}
+        currentPlayer={isCircleNext ? 'O' : 'X'}
         circleWins={circleWins}
         crossWins={crossWins}
+        circleColor={COLOR_PLAYER_O}
+        crossColor={COLOR_PLAYER_X}
       />
 
       <View onTouchStart={handleOnTouchGameCanvas} style={styles.gameCanvas}>
         <Board
           board={board}
-          nextPlayerMark={isXNext ? 'X' : 'O'}
+          nextPlayerMark={isCircleNext ? 'O' : 'X'}
           squareSize={squareSize}
           winnerPlayerMark={winner?.winner || null}
           onClickSquare={handleSquareClick}
+          circleColor={COLOR_PLAYER_O}
+          crossColor={COLOR_PLAYER_X}
         />
 
         <WinnerLine
-          winnerMark={winner.winner}
+          color={getPlayerColor(winner.winner)}
           boardPosition={winner.position}
           squareSize={squareSize}
           winnerResultDirection={winner.direction}

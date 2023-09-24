@@ -12,6 +12,8 @@ interface ScoreProps {
   currentPlayer: PlayerMark;
   circleWins: number;
   crossWins: number;
+  circleColor: string;
+  crossColor: string;
 }
 
 const Score: React.FC<ScoreProps> = ({
@@ -19,6 +21,8 @@ const Score: React.FC<ScoreProps> = ({
   crossWins,
   currentPlayer,
   winnerPlayerMark,
+  circleColor,
+  crossColor,
 }) => {
   return (
     <View style={styles.container}>
@@ -32,6 +36,8 @@ const Score: React.FC<ScoreProps> = ({
           winnerPlayerMark: winnerPlayerMark,
           playerMarkToRender: 'O',
           currentPlayer: currentPlayer,
+          crossColor: crossColor,
+          circleColor: circleColor,
         })}
       />
 
@@ -48,6 +54,8 @@ const Score: React.FC<ScoreProps> = ({
           winnerPlayerMark: winnerPlayerMark,
           playerMarkToRender: 'X',
           currentPlayer: currentPlayer,
+          crossColor: crossColor,
+          circleColor: circleColor,
         })}
       />
     </View>

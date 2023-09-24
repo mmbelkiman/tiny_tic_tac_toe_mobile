@@ -14,15 +14,19 @@ describe('Score Component', () => {
       const playerMarkToRender: PlayerMark = 'O';
       const winnerPlayerMark: PlayerMark = '';
       const currentPlayer: PlayerMark = 'O';
+      const circleColor = '#AAAAAA';
+      const crossColor = '#997766';
 
       const result = getColorFilter({
+        currentPlayer,
         playerMarkToRender,
         winnerPlayerMark,
-        currentPlayer,
+        circleColor,
+        crossColor,
       });
 
       const expected = [
-        {color: '#8390FAFF', keypath: 'Layer 1'},
+        {color: `${circleColor}FF`, keypath: 'Layer 1'},
         {color: '#00000000', keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);
@@ -31,15 +35,19 @@ describe('Score Component', () => {
       const playerMarkToRender: PlayerMark = 'O';
       const winnerPlayerMark: PlayerMark = '';
       const currentPlayer: PlayerMark = 'X';
+      const circleColor = '#AAAAAA';
+      const crossColor = '#997766';
 
       const result = getColorFilter({
         playerMarkToRender,
         winnerPlayerMark,
         currentPlayer,
+        circleColor,
+        crossColor,
       });
 
       const expected = [
-        {color: '#8390FA33', keypath: 'Layer 1'},
+        {color: `${circleColor}33`, keypath: 'Layer 1'},
         {color: '#00000000', keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);
@@ -49,16 +57,20 @@ describe('Score Component', () => {
       const playerMarkToRender: PlayerMark = 'X';
       const winnerPlayerMark: PlayerMark = '';
       const currentPlayer: PlayerMark = 'X';
+      const circleColor = '#AAAAAA';
+      const crossColor = '#997766';
 
       const result = getColorFilter({
         playerMarkToRender,
         winnerPlayerMark,
         currentPlayer,
+        circleColor,
+        crossColor,
       });
 
       const expected = [
         {color: '#00000000', keypath: 'Layer 1'},
-        {color: '#FF4B3EFF', keypath: 'Layer 2'},
+        {color: `${crossColor}FF`, keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);
     });
@@ -66,15 +78,19 @@ describe('Score Component', () => {
       const playerMarkToRender: PlayerMark = 'O';
       const winnerPlayerMark: PlayerMark = 'X';
       const currentPlayer: PlayerMark = 'O';
+      const circleColor = '#AAAAAA';
+      const crossColor = '#997766';
 
       const result = getColorFilter({
         playerMarkToRender,
         winnerPlayerMark,
         currentPlayer,
+        circleColor,
+        crossColor,
       });
 
       const expected = [
-        {color: '#8390FA33', keypath: 'Layer 1'},
+        {color: `${circleColor}33`, keypath: 'Layer 1'},
         {color: '#00000000', keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);

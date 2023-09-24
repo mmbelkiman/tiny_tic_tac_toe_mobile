@@ -1,4 +1,5 @@
 import {PlayerMark, WinnerResult} from '@game/common/types';
+import {COLOR_PLAYER_O, COLOR_PLAYER_X} from '@game/common/constants';
 
 export const checkRows = (
   squares: PlayerMark[][],
@@ -138,4 +139,11 @@ export const calculateWinner = (
 
 export const createInitialBoard = (boardSize: number): PlayerMark[][] => {
   return Array.from({length: boardSize}, () => Array(boardSize).fill(''));
+};
+
+export const getPlayerColor = (playerMark: PlayerMark) => {
+  if (playerMark === '') {
+    return null;
+  }
+  return playerMark === 'X' ? COLOR_PLAYER_X : COLOR_PLAYER_O;
 };

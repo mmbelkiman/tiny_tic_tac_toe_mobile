@@ -7,15 +7,19 @@ import {getColorFilters, getMarkDuration, getMarkStyle} from './utils';
 interface LottieElementProps {
   activePlayerMark: PlayerMark;
   squareSize: number;
+  color: string;
 }
 
 const LottiePlayerMark: React.FC<LottieElementProps> = ({
   activePlayerMark,
   squareSize,
+  color,
 }) => {
   if (activePlayerMark === '') {
     return null;
   }
+
+  const isCircle = activePlayerMark === 'O';
 
   return (
     <LottieView
@@ -24,7 +28,7 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
       source={lottieMarkAnimation}
       autoPlay={true}
       loop={false}
-      colorFilters={getColorFilters({activePlayerMark})}
+      colorFilters={getColorFilters({isCircle, color})}
     />
   );
 };

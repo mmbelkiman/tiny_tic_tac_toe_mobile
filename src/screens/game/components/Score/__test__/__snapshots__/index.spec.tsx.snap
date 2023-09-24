@@ -17,7 +17,7 @@ exports[`Score component matches snapshot at circle turn 1`] = `
     colorFilters={
       [
         {
-          "color": 4286812410,
+          "color": undefined,
           "keypath": "Layer 1",
         },
         {
@@ -64,7 +64,7 @@ exports[`Score component matches snapshot at circle turn 1`] = `
           "keypath": "Layer 1",
         },
         {
-          "color": 872368958,
+          "color": undefined,
           "keypath": "Layer 2",
         },
       ]
@@ -107,7 +107,7 @@ exports[`Score component matches snapshot at croos turn 1`] = `
     colorFilters={
       [
         {
-          "color": 864260346,
+          "color": undefined,
           "keypath": "Layer 1",
         },
         {
@@ -154,7 +154,7 @@ exports[`Score component matches snapshot at croos turn 1`] = `
           "keypath": "Layer 1",
         },
         {
-          "color": 4294921022,
+          "color": undefined,
           "keypath": "Layer 2",
         },
       ]
@@ -197,7 +197,7 @@ exports[`Score component matches snapshot with circle winner 1`] = `
     colorFilters={
       [
         {
-          "color": 864260346,
+          "color": undefined,
           "keypath": "Layer 1",
         },
         {
@@ -244,7 +244,7 @@ exports[`Score component matches snapshot with circle winner 1`] = `
           "keypath": "Layer 1",
         },
         {
-          "color": 872368958,
+          "color": undefined,
           "keypath": "Layer 2",
         },
       ]
@@ -287,7 +287,7 @@ exports[`Score component matches snapshot with cross winner 1`] = `
     colorFilters={
       [
         {
-          "color": 864260346,
+          "color": undefined,
           "keypath": "Layer 1",
         },
         {
@@ -334,7 +334,7 @@ exports[`Score component matches snapshot with cross winner 1`] = `
           "keypath": "Layer 1",
         },
         {
-          "color": 872368958,
+          "color": undefined,
           "keypath": "Layer 2",
         },
       ]

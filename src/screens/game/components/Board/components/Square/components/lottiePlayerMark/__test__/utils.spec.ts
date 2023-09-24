@@ -34,32 +34,34 @@ describe('Game:Square Utils', () => {
 
   describe('getColorFilters', () => {
     it('should return the circle color filter', () => {
-      const activePlayerMark: PlayerMark = 'O';
-      const result = getColorFilters({activePlayerMark});
+      const isCircle = true;
+      const color = 'green';
+      const result = getColorFilters({isCircle, color});
       const expected = [
         {
-          color: '#8390FA',
           keypath: 'Layer 1',
+          color: color,
         },
         {
-          color: '#00000000',
           keypath: 'Layer 2',
+          color: '#00000000',
         },
       ];
 
       expect(result).toEqual(expected);
     });
     it('should return the circle cross filter', () => {
-      const activePlayerMark: PlayerMark = 'X';
-      const result = getColorFilters({activePlayerMark});
+      const isCircle = false;
+      const color = 'blue';
+      const result = getColorFilters({isCircle, color});
       const expected = [
         {
-          color: '#00000000',
           keypath: 'Layer 1',
+          color: '#00000000',
         },
         {
-          color: '#FF4B3E',
           keypath: 'Layer 2',
+          color: color,
         },
       ];
 

@@ -19,7 +19,7 @@ describe('WinnerLine Component', () => {
     const tree = renderer
       .create(
         <WinnerLine
-          winnerMark=""
+          color={'red'}
           boardPosition={null}
           squareSize={100}
           winnerResultDirection={null}
@@ -34,7 +34,7 @@ describe('WinnerLine Component', () => {
     const tree = renderer
       .create(
         <WinnerLine
-          winnerMark="X"
+          color={'red'}
           boardPosition={3}
           squareSize={100}
           winnerResultDirection="horizontal"
@@ -49,7 +49,7 @@ describe('WinnerLine Component', () => {
     const tree = renderer
       .create(
         <WinnerLine
-          winnerMark="O"
+          color={'red'}
           boardPosition={5}
           squareSize={100}
           winnerResultDirection="vertical"
@@ -64,7 +64,7 @@ describe('WinnerLine Component', () => {
     const tree = renderer
       .create(
         <WinnerLine
-          winnerMark="X"
+          color={'red'}
           boardPosition={0}
           squareSize={100}
           winnerResultDirection="diagonalTopLeft"
@@ -79,7 +79,7 @@ describe('WinnerLine Component', () => {
     const tree = renderer
       .create(
         <WinnerLine
-          winnerMark="O"
+          color={'red'}
           boardPosition={2}
           squareSize={100}
           winnerResultDirection="diagonalTopRight"

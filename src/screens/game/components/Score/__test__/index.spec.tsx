@@ -6,6 +6,8 @@ describe('Score component', () => {
   it('matches snapshot at circle turn', () => {
     const {toJSON} = render(
       <Score
+        crossColor={'red'}
+        circleColor={'blue'}
         circleWins={3}
         crossWins={2}
         currentPlayer="O"
@@ -18,6 +20,8 @@ describe('Score component', () => {
   it('matches snapshot at croos turn', () => {
     const {toJSON} = render(
       <Score
+        crossColor={'red'}
+        circleColor={'blue'}
         circleWins={3}
         crossWins={2}
         currentPlayer="X"
@@ -30,6 +34,8 @@ describe('Score component', () => {
   it('matches snapshot with circle winner', () => {
     const {toJSON} = render(
       <Score
+        crossColor={'red'}
+        circleColor={'blue'}
         circleWins={3}
         crossWins={2}
         currentPlayer="O"
@@ -42,6 +48,8 @@ describe('Score component', () => {
   it('matches snapshot with cross winner', () => {
     const {toJSON} = render(
       <Score
+        crossColor={'blue'}
+        circleColor={'red'}
         circleWins={0}
         crossWins={2}
         currentPlayer="X"

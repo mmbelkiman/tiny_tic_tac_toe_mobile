@@ -10,6 +10,8 @@ interface BoardProps {
   winnerPlayerMark: PlayerMark | null;
   squareSize: number;
   onClickSquare: (rowIndex: number, colIndex: number) => void;
+  circleColor: string;
+  crossColor: string;
 }
 
 const Board: React.FC<BoardProps> = ({
@@ -18,6 +20,8 @@ const Board: React.FC<BoardProps> = ({
   squareSize,
   winnerPlayerMark,
   onClickSquare,
+  crossColor,
+  circleColor,
 }) => {
   if (!board || board.length === 0) {
     return null;
@@ -31,9 +35,11 @@ const Board: React.FC<BoardProps> = ({
             <Square
               key={colIndex}
               playerMark={nextPlayerMark}
-              onPress={() => onClickSquare(rowIndex, colIndex)}
               squareSize={squareSize}
               winner={winnerPlayerMark}
+              crossColor={crossColor}
+              circleColor={circleColor}
+              onPress={() => onClickSquare(rowIndex, colIndex)}
             />
           ))}
         </View>

@@ -1,5 +1,4 @@
 import {LottieColorObject, PlayerMark} from '@game/common/types';
-import {getPlayerColor} from '@game/common/utils';
 import {TRANSPARENCY_AMOUNT, TRANSPARENCY_ZERO_AMOUNT} from './constants';
 import {COLOR_TRANSPARENT} from '@game/common/constants';
 
@@ -10,12 +9,13 @@ export const getColorFilterCircle = ({
   playerMarkToRender,
   winnerPlayerMark,
   currentPlayer,
+  playerColor,
 }: {
+  playerColor: string;
   playerMarkToRender: PlayerMark;
   winnerPlayerMark: PlayerMark;
   currentPlayer: PlayerMark;
 }) => {
-  const playerColor = getPlayerColor(playerMarkToRender);
   const transparencyAmount = getColorFilterTransparency({
     currentPlayer,
     winnerPlayerMark,
@@ -31,12 +31,13 @@ export const getColorFilterCross = ({
   playerMarkToRender,
   winnerPlayerMark,
   currentPlayer,
+  playerColor,
 }: {
+  playerColor: string;
   playerMarkToRender: PlayerMark;
   winnerPlayerMark: PlayerMark;
   currentPlayer: PlayerMark;
 }) => {
-  const playerColor = getPlayerColor(playerMarkToRender);
   const transparencyAmount = getColorFilterTransparency({
     currentPlayer,
     winnerPlayerMark,
@@ -73,17 +74,23 @@ export const getColorFilter = ({
   currentPlayer,
   playerMarkToRender,
   winnerPlayerMark,
+  circleColor,
+  crossColor,
 }: {
   playerMarkToRender: PlayerMark;
   winnerPlayerMark: PlayerMark;
   currentPlayer: PlayerMark;
+  circleColor: string;
+  crossColor: string;
 }): LottieColorObject[] => {
-  const circleColor = getColorFilterCircle({
+  const circleFilterColor = getColorFilterCircle({
+    playerColor: circleColor,
     playerMarkToRender,
     winnerPlayerMark,
     currentPlayer,
   });
-  const crossColor = getColorFilterCross({
+  const crossFilterColor = getColorFilterCross({
+    playerColor: crossColor,
     playerMarkToRender,
     winnerPlayerMark,
     currentPlayer,
@@ -92,11 +99,11 @@ export const getColorFilter = ({
   return [
     {
       keypath: 'Layer 1',
-      color: circleColor,
+      color: circleFilterColor,
     },
     {
       keypath: 'Layer 2',
-      color: crossColor,
+      color: crossFilterColor,
     },
   ];
 };

@@ -4,7 +4,7 @@ exports[`WinnerLine Component should match snapshot when no winner 1`] = `null`;
 
 exports[`WinnerLine Component should match the diagonal top left line snapshot 1`] = `
 <DiagonalTopLeftLine
-  color="#FF4B3E"
+  color="red"
   height={0}
   heightAnimation={0}
   length={692.9174811988408}
@@ -15,7 +15,7 @@ exports[`WinnerLine Component should match the diagonal top left line snapshot 1
 
 exports[`WinnerLine Component should match the diagonal top right line snapshot 1`] = `
 <DiagonalTopRightLine
-  color="#8390FA"
+  color="red"
   height={10}
   heightAnimation={0}
   length={841.5009774386089}
@@ -26,7 +26,7 @@ exports[`WinnerLine Component should match the diagonal top right line snapshot 
 
 exports[`WinnerLine Component should match the horizontal line snapshot 1`] = `
 <HorizontalLine
-  color="#FF4B3E"
+  color="red"
   heightAnimation={0}
   opacityAnimation={0}
   positionY={345}
@@ -36,7 +36,7 @@ exports[`WinnerLine Component should match the horizontal line snapshot 1`] = `
 
 exports[`WinnerLine Component should match the vertical line snapshot 1`] = `
 <VerticalLine
-  color="#8390FA"
+  color="red"
   opacityAnimation={0}
   positionX={545}
   shakeAnimation={0}

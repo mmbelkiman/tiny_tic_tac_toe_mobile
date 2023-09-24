@@ -10,6 +10,8 @@ interface SquareProps {
   onPress: () => void;
   squareSize: number;
   winner: PlayerMark | null;
+  circleColor: string;
+  crossColor: string;
   testID?: string;
 }
 
@@ -18,6 +20,8 @@ const Square: React.FC<SquareProps> = ({
   squareSize,
   winner,
   onPress,
+  circleColor,
+  crossColor,
   testID = '',
 }) => {
   const animation = useRef(new Animated.Value(0)).current;
@@ -41,6 +45,7 @@ const Square: React.FC<SquareProps> = ({
       onPress={handleOnPress}>
       <Animated.View style={getSquareStyle(squareSize, animation)}>
         <LottiePlayerMark
+          color={activePlayerMark === 'O' ? circleColor : crossColor}
           activePlayerMark={activePlayerMark}
           squareSize={squareSize}
         />

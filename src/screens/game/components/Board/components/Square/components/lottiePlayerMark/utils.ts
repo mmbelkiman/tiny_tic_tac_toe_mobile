@@ -1,6 +1,5 @@
 import {ViewStyle} from 'react-native';
 import {LottieColorObject, PlayerMark} from '@game/common/types';
-import {getPlayerColor} from '@game/common/utils';
 import {COLOR_TRANSPARENT} from '@game/common/constants';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from './constants';
 
@@ -14,37 +13,24 @@ export const getMarkStyle = (squareSize: number): ViewStyle => {
 export const getMarkDuration = (activePlayerMark: PlayerMark) =>
   activePlayerMark === 'X' ? ANIMATION_DURATION_X : ANIMATION_DURATION_O;
 
-export const getColorFilterCross = ({
-  activePlayerMark,
-}: {
-  activePlayerMark: PlayerMark;
-}) =>
-  activePlayerMark === 'X'
-    ? COLOR_TRANSPARENT
-    : getPlayerColor(activePlayerMark);
-
-export const getColorFilterCircle = ({
-  activePlayerMark,
-}: {
-  activePlayerMark: PlayerMark;
-}) =>
-  activePlayerMark === 'O'
-    ? COLOR_TRANSPARENT
-    : getPlayerColor(activePlayerMark);
-
 export const getColorFilters = ({
-  activePlayerMark,
+  isCircle,
+  color,
 }: {
-  activePlayerMark: PlayerMark;
+  isCircle: boolean;
+  color: string;
 }): Array<LottieColorObject> => {
+  const circleColor = isCircle ? color : COLOR_TRANSPARENT;
+  const crossColor = !isCircle ? color : COLOR_TRANSPARENT;
+
   return [
     {
       keypath: 'Layer 1',
-      color: getColorFilterCross({activePlayerMark}),
+      color: circleColor,
     },
     {
       keypath: 'Layer 2',
-      color: getColorFilterCircle({activePlayerMark}),
+      color: crossColor,
     },
   ];
 };
