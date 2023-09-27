@@ -1,5 +1,5 @@
 import {ViewStyle} from 'react-native';
-import {LottieColorObject, PlayerMark} from '@game/common/types';
+import {LottieColorObject} from '@game/common/types';
 import {COLOR_TRANSPARENT} from '@game/common/constants';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from './constants';
 
@@ -10,8 +10,8 @@ export const getMarkStyle = (squareSize: number): ViewStyle => {
   };
 };
 
-export const getMarkDuration = (activePlayerMark: PlayerMark) =>
-  activePlayerMark === 'X' ? ANIMATION_DURATION_X : ANIMATION_DURATION_O;
+export const getMarkDuration = (isCircle: boolean) =>
+  isCircle ? ANIMATION_DURATION_O : ANIMATION_DURATION_X;
 
 export const getColorFilters = ({
   isCircle,

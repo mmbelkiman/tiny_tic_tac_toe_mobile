@@ -3,50 +3,59 @@ import {Animated, TouchableOpacity} from 'react-native';
 import {PlayerMark} from '@game/common/types';
 import {playShakeAnimation} from './animations';
 import LottiePlayerMark from './components/lottiePlayerMark';
-import {getSquareStyle} from './utils';
+import {getPlayerMarkColor, getSquareStyle} from './utils';
 
 interface SquareProps {
-  playerMark: PlayerMark;
+  playerMarkIsCircle: boolean;
   onPress: () => void;
   squareSize: number;
-  winner: PlayerMark | null;
+  disabled: boolean;
   circleColor: string;
   crossColor: string;
   testID?: string;
 }
 
 const Square: React.FC<SquareProps> = ({
-  playerMark,
+  playerMarkIsCircle,
   squareSize,
-  winner,
+  disabled,
   onPress,
   circleColor,
   crossColor,
   testID = '',
 }) => {
   const animation = useRef(new Animated.Value(0)).current;
-  const [activePlayerMark, setActivePlayerMark] = useState<PlayerMark>('');
+  const [hasPlayedAnimations, setHasPlayedAnimations] = useState(false);
+
+  //It is necessary to persist the Player Mark state to prevent it from changing when a new prop comes from the board.
+  const [isCircle, setIsCircle] = useState<boolean>(false);
 
   const handleOnPress = () => {
     playShakeAnimation(animation);
 
     //Skip other effects and actions if already has player set
-    if (activePlayerMark !== '') {
+    if (hasPlayedAnimations) {
       return;
     }
-    setActivePlayerMark(playerMark);
+    setHasPlayedAnimations(true);
+    setIsCircle(playerMarkIsCircle);
     onPress();
   };
 
   return (
     <TouchableOpacity
       testID={`Square${testID}.TouchableOpacity`}
-      disabled={!!winner}
+      disabled={disabled}
       onPress={handleOnPress}>
       <Animated.View style={getSquareStyle(squareSize, animation)}>
         <LottiePlayerMark
-          color={activePlayerMark === 'O' ? circleColor : crossColor}
-          activePlayerMark={activePlayerMark}
+          color={getPlayerMarkColor({
+            isCircle,
+            crossColor,
+            circleColor,
+          })}
+          isCircle={isCircle}
+          isVisible={hasPlayedAnimations}
           squareSize={squareSize}
         />
       </Animated.View>

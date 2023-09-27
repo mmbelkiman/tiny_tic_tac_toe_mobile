@@ -26,3 +26,13 @@ export const getSquareStyle = (
   {width: squareSize, height: squareSize},
   getShakeStyle(animation),
 ];
+
+export const getPlayerMarkColor = ({
+  isCircle,
+  circleColor,
+  crossColor,
+}: {
+  isCircle: boolean;
+  circleColor: string;
+  crossColor: string;
+}) => (isCircle ? circleColor : crossColor);

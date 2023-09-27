@@ -6,16 +6,16 @@ import {PlayerMark} from '@game/common/types';
 describe('Game:Square Utils', () => {
   describe('getMarkDuration', () => {
     it('should return the correct mark duration for "X"', () => {
-      const activePlayerMark: PlayerMark = 'X';
+      const isCircle = false;
       const expectedDuration = ANIMATION_DURATION_X;
-      const result = getMarkDuration(activePlayerMark);
+      const result = getMarkDuration(isCircle);
       expect(result).toEqual(expectedDuration);
     });
 
     it('should return the correct mark duration for "O"', () => {
-      const activePlayerMark: PlayerMark = 'O';
+      const isCircle = true;
       const expectedDuration = ANIMATION_DURATION_O;
-      const result = getMarkDuration(activePlayerMark);
+      const result = getMarkDuration(isCircle);
       expect(result).toEqual(expectedDuration);
     });
   });

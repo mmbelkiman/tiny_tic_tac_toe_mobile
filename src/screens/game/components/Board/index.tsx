@@ -6,8 +6,8 @@ import Square from './components/Square';
 
 interface BoardProps {
   board: PlayerMark[][];
-  nextPlayerMark: PlayerMark;
-  winnerPlayerMark: PlayerMark | null;
+  nextPlayerIsCircle: boolean;
+  disabled: boolean;
   squareSize: number;
   onClickSquare: (rowIndex: number, colIndex: number) => void;
   circleColor: string;
@@ -16,9 +16,9 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({
   board,
-  nextPlayerMark,
+  nextPlayerIsCircle,
   squareSize,
-  winnerPlayerMark,
+  disabled,
   onClickSquare,
   crossColor,
   circleColor,
@@ -34,9 +34,9 @@ const Board: React.FC<BoardProps> = ({
           {row.map((square, colIndex) => (
             <Square
               key={colIndex}
-              playerMark={nextPlayerMark}
+              playerMarkIsCircle={nextPlayerIsCircle}
               squareSize={squareSize}
-              winner={winnerPlayerMark}
+              disabled={disabled}
               crossColor={crossColor}
               circleColor={circleColor}
               onPress={() => onClickSquare(rowIndex, colIndex)}

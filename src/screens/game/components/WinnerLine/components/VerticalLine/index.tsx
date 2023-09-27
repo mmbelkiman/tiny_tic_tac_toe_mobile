@@ -1,7 +1,6 @@
 import React from 'react';
 import {Animated} from 'react-native';
 import {getLineStyle} from './utils';
-import {PlayerMark} from '@game/common/types';
 
 interface VerticalLineProps {
   width: number;

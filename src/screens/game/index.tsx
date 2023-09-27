@@ -78,8 +78,8 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
       <Header onPressBack={onPressBack} />
 
       <Score
-        winnerPlayerMark={winner.winner}
-        currentPlayer={isCircleNext ? 'O' : 'X'}
+        hasWinner={winner.winner !== ''}
+        circleWillPlayNow={isCircleNext}
         circleWins={circleWins}
         crossWins={crossWins}
         circleColor={COLOR_PLAYER_O}
@@ -89,9 +89,9 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
       <View onTouchStart={handleOnTouchGameCanvas} style={styles.gameCanvas}>
         <Board
           board={board}
-          nextPlayerMark={isCircleNext ? 'O' : 'X'}
+          nextPlayerIsCircle={isCircleNext}
           squareSize={squareSize}
-          winnerPlayerMark={winner?.winner || null}
+          disabled={!!winner?.winner}
           onClickSquare={handleSquareClick}
           circleColor={COLOR_PLAYER_O}
           crossColor={COLOR_PLAYER_X}

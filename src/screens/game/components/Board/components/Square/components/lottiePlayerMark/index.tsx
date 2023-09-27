@@ -1,29 +1,28 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
-import {PlayerMark} from '@game/common/types';
 import lottieMarkAnimation from '@game/res/lottieMarkAnimation.json';
 import {getColorFilters, getMarkDuration, getMarkStyle} from './utils';
 
 interface LottieElementProps {
-  activePlayerMark: PlayerMark;
+  isCircle: boolean;
+  isVisible: boolean;
   squareSize: number;
   color: string;
 }
 
 const LottiePlayerMark: React.FC<LottieElementProps> = ({
-  activePlayerMark,
+  isCircle,
+  isVisible,
   squareSize,
   color,
 }) => {
-  if (activePlayerMark === '') {
+  if (!isVisible) {
     return null;
   }
 
-  const isCircle = activePlayerMark === 'O';
-
   return (
     <LottieView
-      duration={getMarkDuration(activePlayerMark)}
+      duration={getMarkDuration(isCircle)}
       style={getMarkStyle(squareSize)}
       source={lottieMarkAnimation}
       autoPlay={true}

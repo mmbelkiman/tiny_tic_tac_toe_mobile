@@ -5,21 +5,36 @@ import LottiePlayerMark from '../index';
 describe('LottiePlayerMark Component', () => {
   it('should render LottiePlayerMark with "X" animation', () => {
     const {toJSON} = render(
-      <LottiePlayerMark activePlayerMark="X" squareSize={100} />,
+      <LottiePlayerMark
+        color={'red'}
+        isVisible={true}
+        isCircle={false}
+        squareSize={100}
+      />,
     );
     expect(toJSON()).toMatchSnapshot();
   });
 
   it('should render LottiePlayerMark with "O" animation', () => {
     const {toJSON} = render(
-      <LottiePlayerMark activePlayerMark="O" squareSize={100} />,
+      <LottiePlayerMark
+        color={'red'}
+        isVisible={true}
+        isCircle={true}
+        squareSize={100}
+      />,
     );
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('should return null when activePlayerMark is empty', () => {
+  it('should return null when is not visible', () => {
     const {toJSON} = render(
-      <LottiePlayerMark activePlayerMark="" squareSize={100} />,
+      <LottiePlayerMark
+        color={'red'}
+        isVisible={false}
+        isCircle={false}
+        squareSize={100}
+      />,
     );
     expect(toJSON()).toBeNull();
   });

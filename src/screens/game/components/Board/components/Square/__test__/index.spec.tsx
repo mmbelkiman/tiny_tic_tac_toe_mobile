@@ -7,9 +7,11 @@ describe('Square Component', () => {
     const onPressMock = jest.fn();
     const {getByTestId} = render(
       <Square
-        playerMark="X"
+        disabled={false}
+        crossColor={'red'}
+        circleColor={'blue'}
+        playerMarkIsCircle={true}
         squareSize={100}
-        winner={null}
         onPress={onPressMock}
       />,
     );
@@ -26,9 +28,11 @@ describe('Square Component', () => {
     const onPressMock = jest.fn();
     const {getByTestId} = render(
       <Square
-        playerMark="X"
+        disabled={true}
+        playerMarkIsCircle={true}
+        circleColor={'red'}
+        crossColor={'blue'}
         squareSize={100}
-        winner="X"
         onPress={onPressMock}
       />,
     );
@@ -42,9 +46,11 @@ describe('Square Component', () => {
   it('renders correctly with playerMark "X" and squareSize 100', () => {
     const {toJSON} = render(
       <Square
-        playerMark="X"
+        disabled={false}
+        crossColor={'red'}
+        circleColor={'blue'}
+        playerMarkIsCircle={false}
         squareSize={100}
-        winner={null}
         onPress={() => {}}
       />,
     );
@@ -54,9 +60,11 @@ describe('Square Component', () => {
   it('renders correctly with playerMark "O" and squareSize 32', () => {
     const {toJSON} = render(
       <Square
-        playerMark="O"
+        playerMarkIsCircle={true}
+        circleColor={'red'}
+        crossColor={'blue'}
+        disabled={false}
         squareSize={32}
-        winner={null}
         onPress={() => {}}
       />,
     );
@@ -65,7 +73,14 @@ describe('Square Component', () => {
 
   it('renders correctly with a winner', () => {
     const {toJSON} = render(
-      <Square playerMark="X" squareSize={100} winner="X" onPress={() => {}} />,
+      <Square
+        disabled={true}
+        crossColor={'red'}
+        circleColor={'blue'}
+        playerMarkIsCircle={true}
+        squareSize={100}
+        onPress={() => {}}
+      />,
     );
     expect(toJSON()).toMatchSnapshot();
   });
@@ -73,9 +88,11 @@ describe('Square Component', () => {
   it('renders correctly without winner and playerMark', () => {
     const {toJSON} = render(
       <Square
-        playerMark=""
+        disabled={false}
+        playerMarkIsCircle={false}
+        circleColor={'rd'}
+        crossColor={'blue'}
         squareSize={100}
-        winner={null}
         onPress={() => {}}
       />,
     );

@@ -2,14 +2,13 @@ import {Text, View} from 'react-native';
 import LottieView from 'lottie-react-native';
 import React from 'react';
 import lottieMarkAnimation from '@game/res/lottieMarkAnimation.json';
-import {PlayerMark} from '@game/common/types';
-import {getColorFilter, getScoreText} from './utils';
+import {getColorFilterCircle, getColorFilterCross, getScoreText} from './utils';
 import {LOTTIE_DURATION} from './constants';
 import styles from './styles';
 
 interface ScoreProps {
-  winnerPlayerMark: PlayerMark;
-  currentPlayer: PlayerMark;
+  hasWinner: boolean;
+  circleWillPlayNow: boolean;
   circleWins: number;
   crossWins: number;
   circleColor: string;
@@ -19,8 +18,8 @@ interface ScoreProps {
 const Score: React.FC<ScoreProps> = ({
   circleWins,
   crossWins,
-  currentPlayer,
-  winnerPlayerMark,
+  circleWillPlayNow,
+  hasWinner,
   circleColor,
   crossColor,
 }) => {
@@ -32,12 +31,9 @@ const Score: React.FC<ScoreProps> = ({
         source={lottieMarkAnimation}
         autoPlay={true}
         loop={false}
-        colorFilters={getColorFilter({
-          winnerPlayerMark: winnerPlayerMark,
-          playerMarkToRender: 'O',
-          currentPlayer: currentPlayer,
-          crossColor: crossColor,
-          circleColor: circleColor,
+        colorFilters={getColorFilterCircle({
+          color: circleColor,
+          withTransparency: !circleWillPlayNow || hasWinner,
         })}
       />
 
@@ -50,12 +46,9 @@ const Score: React.FC<ScoreProps> = ({
         source={lottieMarkAnimation}
         autoPlay={true}
         loop={false}
-        colorFilters={getColorFilter({
-          winnerPlayerMark: winnerPlayerMark,
-          playerMarkToRender: 'X',
-          currentPlayer: currentPlayer,
-          crossColor: crossColor,
-          circleColor: circleColor,
+        colorFilters={getColorFilterCross({
+          color: crossColor,
+          withTransparency: circleWillPlayNow || hasWinner,
         })}
       />
     </View>

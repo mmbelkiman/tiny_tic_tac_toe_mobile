@@ -1,5 +1,8 @@
-import {getColorFilter, getScoreText} from '../utils';
-import {PlayerMark} from '@game/common/types';
+import {
+  getColorFilterCircle,
+  getColorFilterCross,
+  getScoreText,
+} from '../utils';
 
 describe('Score Component', () => {
   describe('getScoreText', () => {
@@ -9,89 +12,66 @@ describe('Score Component', () => {
     });
   });
 
-  describe('getColorFilter', () => {
+  describe('getColorFilterCircle', () => {
     it('returns the correct color filter for circle', () => {
-      const playerMarkToRender: PlayerMark = 'O';
-      const winnerPlayerMark: PlayerMark = '';
-      const currentPlayer: PlayerMark = 'O';
-      const circleColor = '#AAAAAA';
-      const crossColor = '#997766';
+      const withTransparency = false;
+      const color = '#AAAAAA';
 
-      const result = getColorFilter({
-        currentPlayer,
-        playerMarkToRender,
-        winnerPlayerMark,
-        circleColor,
-        crossColor,
+      const result = getColorFilterCircle({
+        color,
+        withTransparency,
       });
 
       const expected = [
-        {color: `${circleColor}FF`, keypath: 'Layer 1'},
+        {color: `${color}FF`, keypath: 'Layer 1'},
         {color: '#00000000', keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);
     });
     it('returns the correct color filter for circle at cross turn', () => {
-      const playerMarkToRender: PlayerMark = 'O';
-      const winnerPlayerMark: PlayerMark = '';
-      const currentPlayer: PlayerMark = 'X';
-      const circleColor = '#AAAAAA';
-      const crossColor = '#997766';
+      const withTransparency = true;
+      const color = '#AAAAAA';
 
-      const result = getColorFilter({
-        playerMarkToRender,
-        winnerPlayerMark,
-        currentPlayer,
-        circleColor,
-        crossColor,
+      const result = getColorFilterCircle({
+        withTransparency,
+        color,
       });
 
       const expected = [
-        {color: `${circleColor}33`, keypath: 'Layer 1'},
+        {color: `${color}33`, keypath: 'Layer 1'},
         {color: '#00000000', keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);
     });
-
+  });
+  describe('getColorFilterCross', () => {
     it('returns the correct color filter for cross', () => {
-      const playerMarkToRender: PlayerMark = 'X';
-      const winnerPlayerMark: PlayerMark = '';
-      const currentPlayer: PlayerMark = 'X';
-      const circleColor = '#AAAAAA';
-      const crossColor = '#997766';
+      const withTransparency = false;
+      const color = '#AAAAAA';
 
-      const result = getColorFilter({
-        playerMarkToRender,
-        winnerPlayerMark,
-        currentPlayer,
-        circleColor,
-        crossColor,
+      const result = getColorFilterCross({
+        color,
+        withTransparency,
       });
 
       const expected = [
         {color: '#00000000', keypath: 'Layer 1'},
-        {color: `${crossColor}FF`, keypath: 'Layer 2'},
+        {color: `${color}FF`, keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);
     });
     it('returns the correct color filter when has winner', () => {
-      const playerMarkToRender: PlayerMark = 'O';
-      const winnerPlayerMark: PlayerMark = 'X';
-      const currentPlayer: PlayerMark = 'O';
-      const circleColor = '#AAAAAA';
-      const crossColor = '#997766';
+      const withTransparency = true;
+      const color = '#AAAAAA';
 
-      const result = getColorFilter({
-        playerMarkToRender,
-        winnerPlayerMark,
-        currentPlayer,
-        circleColor,
-        crossColor,
+      const result = getColorFilterCross({
+        color,
+        withTransparency,
       });
 
       const expected = [
-        {color: `${circleColor}33`, keypath: 'Layer 1'},
-        {color: '#00000000', keypath: 'Layer 2'},
+        {color: '#00000000', keypath: 'Layer 1'},
+        {color: `${color}33`, keypath: 'Layer 2'},
       ];
       expect(result).toEqual(expected);
     });

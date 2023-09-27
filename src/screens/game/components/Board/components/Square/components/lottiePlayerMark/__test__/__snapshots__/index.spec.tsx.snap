@@ -7,7 +7,7 @@ exports[`LottiePlayerMark Component should render LottiePlayerMark with "O" anim
   colorFilters={
     [
       {
-        "color": undefined,
+        "color": 4294901760,
         "keypath": "Layer 1",
       },
       {
@@ -47,7 +47,7 @@ exports[`LottiePlayerMark Component should render LottiePlayerMark with "X" anim
         "keypath": "Layer 1",
       },
       {
-        "color": undefined,
+        "color": 4294901760,
         "keypath": "Layer 2",
       },
     ]
