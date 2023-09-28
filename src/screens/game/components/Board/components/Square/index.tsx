@@ -1,9 +1,9 @@
 import React, {useRef, useState} from 'react';
 import {Animated, TouchableOpacity} from 'react-native';
-import {PlayerMark} from '@game/common/types';
 import {playShakeAnimation} from './animations';
 import LottiePlayerMark from './components/lottiePlayerMark';
 import {getPlayerMarkColor, getSquareStyle} from './utils';
+import {BACKGROUND_COLOR} from './constants';
 
 interface SquareProps {
   playerMarkIsCircle: boolean;
@@ -57,6 +57,7 @@ const Square: React.FC<SquareProps> = ({
           isCircle={isCircle}
           isVisible={hasPlayedAnimations}
           squareSize={squareSize}
+          backgroundColor={BACKGROUND_COLOR}
         />
       </Animated.View>
     </TouchableOpacity>

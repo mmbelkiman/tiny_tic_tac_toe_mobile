@@ -8,6 +8,7 @@ interface LottieElementProps {
   isVisible: boolean;
   squareSize: number;
   color: string;
+  backgroundColor: string;
 }
 
 const LottiePlayerMark: React.FC<LottieElementProps> = ({
@@ -15,6 +16,7 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
   isVisible,
   squareSize,
   color,
+  backgroundColor,
 }) => {
   if (!isVisible) {
     return null;
@@ -27,7 +29,7 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
       source={lottieMarkAnimation}
       autoPlay={true}
       loop={false}
-      colorFilters={getColorFilters({isCircle, color})}
+      colorFilters={getColorFilters({isCircle, color, backgroundColor})}
     />
   );
 };

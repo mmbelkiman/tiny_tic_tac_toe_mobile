@@ -1,8 +1,11 @@
 import {StyleSheet} from 'react-native';
+import {BACKGROUND_COLOR} from '@game/common/constants';
 
 export default StyleSheet.create({
-  container: {flex: 1},
-
+  container: {
+    flex: 1,
+    backgroundColor: BACKGROUND_COLOR,
+  },
   status: {
     marginBottom: 10,
     fontSize: 24,

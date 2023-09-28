@@ -10,50 +10,36 @@ describe('Score component', () => {
         circleColor={'blue'}
         circleWins={3}
         crossWins={2}
-        currentPlayer="O"
-        winnerPlayerMark=""
+        hasWinner={false}
+        circleWillPlayNow={true}
       />,
     );
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('matches snapshot at croos turn', () => {
+  it('matches snapshot at cross turn', () => {
     const {toJSON} = render(
       <Score
         crossColor={'red'}
         circleColor={'blue'}
         circleWins={3}
         crossWins={2}
-        currentPlayer="X"
-        winnerPlayerMark=""
+        hasWinner={false}
+        circleWillPlayNow={false}
       />,
     );
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('matches snapshot with circle winner', () => {
+  it('matches snapshot with winner', () => {
     const {toJSON} = render(
       <Score
         crossColor={'red'}
         circleColor={'blue'}
         circleWins={3}
         crossWins={2}
-        currentPlayer="O"
-        winnerPlayerMark="O"
-      />,
-    );
-    expect(toJSON()).toMatchSnapshot();
-  });
-
-  it('matches snapshot with cross winner', () => {
-    const {toJSON} = render(
-      <Score
-        crossColor={'blue'}
-        circleColor={'red'}
-        circleWins={0}
-        crossWins={2}
-        currentPlayer="X"
-        winnerPlayerMark="X"
+        circleWillPlayNow={true}
+        hasWinner={true}
       />,
     );
     expect(toJSON()).toMatchSnapshot();

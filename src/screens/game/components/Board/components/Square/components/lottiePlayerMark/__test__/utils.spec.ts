@@ -1,7 +1,6 @@
 import {ViewStyle} from 'react-native';
 import {getColorFilters, getMarkDuration, getMarkStyle} from '../utils';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from '../constants';
-import {PlayerMark} from '@game/common/types';
 
 describe('Game:Square Utils', () => {
   describe('getMarkDuration', () => {
@@ -36,7 +35,8 @@ describe('Game:Square Utils', () => {
     it('should return the circle color filter', () => {
       const isCircle = true;
       const color = 'green';
-      const result = getColorFilters({isCircle, color});
+      const backgroundColor = 'white';
+      const result = getColorFilters({isCircle, color, backgroundColor});
       const expected = [
         {
           keypath: 'Layer 1',
@@ -44,7 +44,7 @@ describe('Game:Square Utils', () => {
         },
         {
           keypath: 'Layer 2',
-          color: '#00000000',
+          color: backgroundColor,
         },
       ];
 
@@ -53,11 +53,13 @@ describe('Game:Square Utils', () => {
     it('should return the circle cross filter', () => {
       const isCircle = false;
       const color = 'blue';
-      const result = getColorFilters({isCircle, color});
+      const backgroundColor = 'white';
+
+      const result = getColorFilters({isCircle, color, backgroundColor});
       const expected = [
         {
           keypath: 'Layer 1',
-          color: '#00000000',
+          color: backgroundColor,
         },
         {
           keypath: 'Layer 2',

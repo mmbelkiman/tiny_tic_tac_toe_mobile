@@ -1,6 +1,5 @@
 import {ViewStyle} from 'react-native';
 import {LottieColorObject} from '@game/common/types';
-import {COLOR_TRANSPARENT} from '@game/common/constants';
 import {ANIMATION_DURATION_O, ANIMATION_DURATION_X} from './constants';
 
 export const getMarkStyle = (squareSize: number): ViewStyle => {
@@ -16,12 +15,14 @@ export const getMarkDuration = (isCircle: boolean) =>
 export const getColorFilters = ({
   isCircle,
   color,
+  backgroundColor,
 }: {
   isCircle: boolean;
   color: string;
+  backgroundColor: string;
 }): LottieColorObject[] => {
-  const circleColor = isCircle ? color : COLOR_TRANSPARENT;
-  const crossColor = !isCircle ? color : COLOR_TRANSPARENT;
+  const circleColor = isCircle ? color : backgroundColor;
+  const crossColor = !isCircle ? color : backgroundColor;
 
   return [
     {

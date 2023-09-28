@@ -10,6 +10,7 @@ describe('LottiePlayerMark Component', () => {
         isVisible={true}
         isCircle={false}
         squareSize={100}
+        backgroundColor={'blue'}
       />,
     );
     expect(toJSON()).toMatchSnapshot();
@@ -22,6 +23,7 @@ describe('LottiePlayerMark Component', () => {
         isVisible={true}
         isCircle={true}
         squareSize={100}
+        backgroundColor={'blue'}
       />,
     );
     expect(toJSON()).toMatchSnapshot();
@@ -34,6 +36,7 @@ describe('LottiePlayerMark Component', () => {
         isVisible={false}
         isCircle={false}
         squareSize={100}
+        backgroundColor={'blue'}
       />,
     );
     expect(toJSON()).toBeNull();
