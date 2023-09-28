@@ -31,6 +31,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
     direction: null,
     position: null,
   });
+  const [totalMarkOnTheBoard, setTotalMarkOnTheBoard] = useState(0);
 
   useEffect(() => {
     // If it has a clear board, create a new one
@@ -53,6 +54,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
   }, [board, boardSize]);
 
   const resetGame = () => {
+    setTotalMarkOnTheBoard(0);
     setBoard([[]]);
     setWinner({
       winner: '',
@@ -62,7 +64,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
   };
 
   const handleOnTouchGameCanvas = () => {
-    if (winner.winner !== '') {
+    if (winner.winner !== '' || totalMarkOnTheBoard === boardSize * boardSize) {
       resetGame();
     }
   };
@@ -72,6 +74,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
     newBoard[row][col] = isCircleNext ? 'O' : 'X';
     setBoard(newBoard);
     setIsCircleNext(!isCircleNext);
+    setTotalMarkOnTheBoard(prev => prev + 1);
   };
 
   return (
@@ -79,7 +82,9 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
       <Header onPressBack={onPressBack} />
 
       <Score
-        hasWinner={winner.winner !== ''}
+        hasWinner={
+          winner.winner !== '' || totalMarkOnTheBoard === boardSize * boardSize
+        }
         circleWillPlayNow={isCircleNext}
         circleWins={circleWins}
         crossWins={crossWins}
@@ -95,7 +100,9 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
             board={board}
             nextPlayerIsCircle={isCircleNext}
             squareSize={squareSize}
-            disabled={!!winner?.winner}
+            disabled={
+              !!winner?.winner || totalMarkOnTheBoard === boardSize * boardSize
+            }
             onClickSquare={handleSquareClick}
             circleColor={COLOR_PLAYER_O}
             crossColor={COLOR_PLAYER_X}
