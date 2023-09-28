@@ -1,5 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Dimensions, SafeAreaView, View} from 'react-native';
+import {
+  Dimensions,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import Header from '@game/components/Header';
 import Score from '@game/components/Score';
 import Board from '@game/components/Board';
@@ -63,10 +68,6 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
   };
 
   const handleSquareClick = (row: number, col: number) => {
-    if (board[row][col] || winner?.winner) {
-      return;
-    }
-
     const newBoard = [...board];
     newBoard[row][col] = isCircleNext ? 'O' : 'X';
     setBoard(newBoard);
@@ -86,25 +87,29 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
         crossColor={COLOR_PLAYER_X}
       />
 
-      <View onTouchStart={handleOnTouchGameCanvas} style={styles.gameCanvas}>
-        <Board
-          board={board}
-          nextPlayerIsCircle={isCircleNext}
-          squareSize={squareSize}
-          disabled={!!winner?.winner}
-          onClickSquare={handleSquareClick}
-          circleColor={COLOR_PLAYER_O}
-          crossColor={COLOR_PLAYER_X}
-        />
+      <TouchableWithoutFeedback
+        testID={'Game.gameCanvas'}
+        onPress={handleOnTouchGameCanvas}>
+        <View style={styles.gameCanvas}>
+          <Board
+            board={board}
+            nextPlayerIsCircle={isCircleNext}
+            squareSize={squareSize}
+            disabled={!!winner?.winner}
+            onClickSquare={handleSquareClick}
+            circleColor={COLOR_PLAYER_O}
+            crossColor={COLOR_PLAYER_X}
+          />
 
-        <WinnerLine
-          color={getPlayerColor(winner.winner)}
-          boardPosition={winner.position}
-          squareSize={squareSize}
-          winnerResultDirection={winner.direction}
-          boardSize={boardSize}
-        />
-      </View>
+          <WinnerLine
+            color={getPlayerColor(winner.winner)}
+            boardPosition={winner.position}
+            squareSize={squareSize}
+            winnerResultDirection={winner.direction}
+            boardSize={boardSize}
+          />
+        </View>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 };

@@ -33,7 +33,8 @@ const Board: React.FC<BoardProps> = ({
         <View key={rowIndex} style={styles.row}>
           {row.map((square, colIndex) => (
             <Square
-              key={colIndex}
+              testID={`${rowIndex}.${colIndex}`}
+              key={`${rowIndex}.${colIndex}`}
               playerMarkIsCircle={nextPlayerIsCircle}
               squareSize={squareSize}
               disabled={disabled}

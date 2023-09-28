@@ -1,6 +1,4 @@
-/**
- * @format
- */
+/* istanbul ignore file */
 
 import {AppRegistry} from 'react-native';
 import App from './src/App';

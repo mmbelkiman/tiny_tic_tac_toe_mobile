@@ -6,6 +6,7 @@ import {
   checkDiagonalTopRight,
   checkRows,
   createInitialBoard,
+  getPlayerColor,
 } from '../utils';
 import {WinnerResult} from '../common/types';
 
@@ -416,6 +417,23 @@ describe('Game Utils', () => {
 
       const result = createInitialBoard(boardSize);
       expect(result).toEqual(expectedBoard);
+    });
+  });
+
+  describe('getPlayerColor', () => {
+    it('returns null for an empty player mark', () => {
+      const result = getPlayerColor('');
+      expect(result).toBeNull();
+    });
+
+    it('returns the correct color for player mark X', () => {
+      const result = getPlayerColor('X');
+      expect(result).toBe('#FF4B3E');
+    });
+
+    it('returns the correct color for player mark O', () => {
+      const result = getPlayerColor('O');
+      expect(result).toBe('#8390FA');
     });
   });
 });

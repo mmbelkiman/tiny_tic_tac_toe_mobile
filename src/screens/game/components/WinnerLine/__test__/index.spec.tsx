@@ -19,7 +19,7 @@ describe('WinnerLine Component', () => {
     const tree = renderer
       .create(
         <WinnerLine
-          color={'red'}
+          color={null}
           boardPosition={null}
           squareSize={100}
           winnerResultDirection={null}

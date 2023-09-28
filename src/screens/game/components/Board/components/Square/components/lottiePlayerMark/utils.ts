@@ -19,7 +19,7 @@ export const getColorFilters = ({
 }: {
   isCircle: boolean;
   color: string;
-}): Array<LottieColorObject> => {
+}): LottieColorObject[] => {
   const circleColor = isCircle ? color : COLOR_TRANSPARENT;
   const crossColor = !isCircle ? color : COLOR_TRANSPARENT;
 

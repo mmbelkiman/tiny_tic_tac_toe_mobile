@@ -1,0 +1,536 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Board Component matches snapshot with clear board 1`] = `null`;
+
+exports[`Board Component matches snapshot with sample board data 1`] = `
+[
+  <View
+    style={
+      {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square0.0.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square0.1.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square0.2.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+  </View>,
+  <View
+    style={
+      {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square1.0.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square1.1.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square1.2.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+  </View>,
+  <View
+    style={
+      {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square2.0.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square2.1.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="Square2.2.TouchableOpacity"
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#00000011",
+            "borderColor": "#fff",
+            "borderWidth": 2,
+            "height": 50,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateY": -2,
+              },
+            ],
+            "width": 50,
+          }
+        }
+      />
+    </View>
+  </View>,
+]
+`;
