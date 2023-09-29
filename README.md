@@ -1,4 +1,4 @@
-# React Native Project
+# 🤏 Tiny Tic Tac Toe
 ## Overview
 This is a Tic-tac-toe game built with TypeScript and React Native,
 designed to run seamlessly on both Android and iOS devices.
@@ -7,6 +7,15 @@ a mobile application using minimal external dependencies.
 
 This is not a good project to study if you want to learn more about how to create 
 a game with this technology.
+
+### About Tic-tac-toe game
+Tic-tac-toe,also known as noughts and crosses or Xs and Os,
+is a classic two-player game that is easy to learn and can be played anywhere
+with just a piece of paper and a pen. The game's simplicity makes it a popular
+choice for children and adults alike.
+
+The goal of Tic-tac-toe is to be the first player to form a line of three of
+your marks (either "X" or "O") horizontally, vertically, or diagonally on the game board.
 
 ## Key Points
 ### Minimal Dependencies
@@ -44,19 +53,9 @@ This is achieved by relying on primitive data types and minimizing shared depend
 />
 ```
 
-## About Tic-tac-toe game
-Tic-tac-toe,also known as noughts and crosses or Xs and Os,
-is a classic two-player game that is easy to learn and can be played anywhere 
-with just a piece of paper and a pen. The game's simplicity makes it a popular 
-choice for children and adults alike.
-
-The goal of Tic-tac-toe is to be the first player to form a line of three of 
-your marks (either "X" or "O") horizontally, vertically, or diagonally on the game board.
-
 ## Getting Started
 
 ### Prerequisites
-
 Before you begin, ensure you have met the react native requirements:  
 [Setting up the development environment](https://reactnative.dev/docs/environment-setup)
 
@@ -126,7 +125,7 @@ This project is open-source and available under the MIT License. You are free to
 
 ## TODO
 - Show a message when the game is over (winner/draw)
-  - Add some sound effects
-  - Add a physical shake
-  - Add the possibility of playing versus a computer
-  - Add a new config to set how many points are necessary to win. e.g: At board 9x9, set to win a game with 3 sequential marks only
+- Add some sound effects
+- Add a physical shake
+- Add the possibility of playing versus a computer
+- Add a new config to set how many points are necessary to win. e.g: At board 9x9, set to win a game with 3 sequential marks only
