@@ -8,6 +8,7 @@ interface HorizontalLineProps {
   heightAnimation: Animated.Value;
   opacityAnimation: Animated.Value;
   shakeAnimation: Animated.Value;
+  testID?: string | number;
 }
 
 const HorizontalLine: React.FC<HorizontalLineProps> = ({
@@ -16,9 +17,11 @@ const HorizontalLine: React.FC<HorizontalLineProps> = ({
   heightAnimation,
   opacityAnimation,
   shakeAnimation,
+  testID = '',
 }) => {
   return (
     <Animated.View
+      testID={`HorizontalLine${testID}`}
       style={getLineStyle(
         color,
         positionY,

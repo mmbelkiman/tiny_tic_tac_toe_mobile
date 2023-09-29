@@ -46,7 +46,7 @@ const Score: React.FC<ScoreProps> = ({
         />
       </View>
 
-      <Text style={styles.textScore}>
+      <Text testID={'Score.Text'} style={styles.textScore}>
         {getScoreText(circleWins, crossWins)}
       </Text>
 

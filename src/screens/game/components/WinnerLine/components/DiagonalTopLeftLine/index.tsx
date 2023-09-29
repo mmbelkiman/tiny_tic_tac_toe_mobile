@@ -9,6 +9,7 @@ interface DiagonalTopLeftLineProps {
   heightAnimation: Animated.Value;
   opacityAnimation: Animated.Value;
   shakeAnimation: Animated.Value;
+  testID?: string | number;
 }
 
 const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
@@ -18,9 +19,11 @@ const DiagonalTopLeftLine: React.FC<DiagonalTopLeftLineProps> = ({
   opacityAnimation,
   shakeAnimation,
   heightAnimation,
+  testID = '',
 }) => {
   return (
     <Animated.View
+      testID={`DiagonalTopLeftLine${testID}`}
       style={getLineStyle({
         color,
         length,

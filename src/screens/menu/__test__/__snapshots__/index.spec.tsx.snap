@@ -9,6 +9,7 @@ exports[`Menu component renders correctly with initial board size 1`] = `
       "justifyContent": "center",
     }
   }
+  testID="Menu.view.container"
 >
   <View
     style={

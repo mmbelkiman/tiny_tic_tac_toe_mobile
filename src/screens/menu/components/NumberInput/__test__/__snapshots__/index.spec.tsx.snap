@@ -72,6 +72,7 @@ exports[`NumberInput component renders correctly when decreasing value 1`] = `
           "textAlign": "center",
         }
       }
+      testID="NumberInput.text"
     >
       2x2
     </Text>
@@ -196,6 +197,7 @@ exports[`NumberInput component renders correctly when increasing value 1`] = `
           "textAlign": "center",
         }
       }
+      testID="NumberInput.text"
     >
       4x4
     </Text>
@@ -320,6 +322,7 @@ exports[`NumberInput component renders correctly when value reaches maximum 1`] 
           "textAlign": "center",
         }
       }
+      testID="NumberInput.text"
     >
       5x5
     </Text>
@@ -444,6 +447,7 @@ exports[`NumberInput component renders correctly when value reaches minimum 1`] 
           "textAlign": "center",
         }
       }
+      testID="NumberInput.text"
     >
       0x0
     </Text>
@@ -568,6 +572,7 @@ exports[`NumberInput component renders correctly with initial value 1`] = `
           "textAlign": "center",
         }
       }
+      testID="NumberInput.text"
     >
       3x3
     </Text>

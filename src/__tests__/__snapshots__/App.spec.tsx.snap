@@ -8,6 +8,7 @@ exports[`App renders the Game component when in RUNNING state 1`] = `
       "flex": 1,
     }
   }
+  testID="Game.view.container"
 >
   <View
     style={
@@ -125,6 +126,7 @@ exports[`App renders the Game component when in RUNNING state 1`] = `
           "fontSize": 40,
         }
       }
+      testID="Score.Text"
     >
       0 - 0
     </Text>
@@ -737,6 +739,7 @@ exports[`App renders the Menu component when in STOPPED state 1`] = `
       "justifyContent": "center",
     }
   }
+  testID="Menu.view.container"
 >
   <View
     style={
@@ -886,6 +889,7 @@ exports[`App renders the Menu component when in STOPPED state 1`] = `
             "textAlign": "center",
           }
         }
+        testID="NumberInput.text"
       >
         3x3
       </Text>
@@ -996,6 +1000,7 @@ exports[`App transitions from RUNNING to STOPPED state when the "Back" button is
       "justifyContent": "center",
     }
   }
+  testID="Menu.view.container"
 >
   <View
     style={
@@ -1145,6 +1150,7 @@ exports[`App transitions from RUNNING to STOPPED state when the "Back" button is
             "textAlign": "center",
           }
         }
+        testID="NumberInput.text"
       >
         3x3
       </Text>
@@ -1254,6 +1260,7 @@ exports[`App transitions from STOPPED to RUNNING state when the "PLAY" button is
       "flex": 1,
     }
   }
+  testID="Game.view.container"
 >
   <View
     style={
@@ -1371,6 +1378,7 @@ exports[`App transitions from STOPPED to RUNNING state when the "PLAY" button is
           "fontSize": 40,
         }
       }
+      testID="Score.Text"
     >
       0 - 0
     </Text>

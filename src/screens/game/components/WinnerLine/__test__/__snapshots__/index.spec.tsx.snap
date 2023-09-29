@@ -10,6 +10,7 @@ exports[`WinnerLine Component should match the diagonal top left line snapshot 1
   length={692.9174811988408}
   opacityAnimation={0}
   shakeAnimation={0}
+  testID={0}
 />
 `;
 
@@ -21,6 +22,7 @@ exports[`WinnerLine Component should match the diagonal top right line snapshot 
   length={841.5009774386089}
   opacityAnimation={0}
   shakeAnimation={0}
+  testID={2}
 />
 `;
 
@@ -31,6 +33,7 @@ exports[`WinnerLine Component should match the horizontal line snapshot 1`] = `
   opacityAnimation={0}
   positionY={345}
   shakeAnimation={0}
+  testID={3}
 />
 `;
 
@@ -40,6 +43,7 @@ exports[`WinnerLine Component should match the vertical line snapshot 1`] = `
   opacityAnimation={0}
   positionX={545}
   shakeAnimation={0}
+  testID={5}
   width={10}
   widthAnimation={0}
 />

@@ -34,6 +34,7 @@ exports[`DiagonalTopRightLine Component should match the snapshot with a winner 
       "width": 100,
     }
   }
+  testID="DiagonalTopRightLine"
 />
 `;
 
@@ -71,5 +72,6 @@ exports[`DiagonalTopRightLine Component should match the snapshot without a winn
       "width": 100,
     }
   }
+  testID="DiagonalTopRightLine"
 />
 `;

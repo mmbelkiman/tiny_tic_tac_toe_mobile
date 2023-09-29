@@ -9,6 +9,7 @@ interface VerticalLineProps {
   widthAnimation: Animated.Value;
   opacityAnimation: Animated.Value;
   shakeAnimation: Animated.Value;
+  testID?: string | number;
 }
 
 const VerticalLine: React.FC<VerticalLineProps> = ({
@@ -17,9 +18,11 @@ const VerticalLine: React.FC<VerticalLineProps> = ({
   widthAnimation,
   shakeAnimation,
   opacityAnimation,
+  testID = '',
 }) => {
   return (
     <Animated.View
+      testID={`VerticalLine${testID}`}
       style={getLineStyle(
         color,
         positionX,

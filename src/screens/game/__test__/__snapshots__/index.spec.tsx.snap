@@ -8,6 +8,7 @@ exports[`Game Component does not reset the game when touched without a winner 1`
       "flex": 1,
     }
   }
+  testID="Game.view.container"
 >
   <View
     style={
@@ -125,6 +126,7 @@ exports[`Game Component does not reset the game when touched without a winner 1`
           "fontSize": 40,
         }
       }
+      testID="Score.Text"
     >
       0 - 0
     </Text>
@@ -287,6 +289,7 @@ exports[`Game Component does not reset the game when touched without a winner 1`
                 "width": 250,
               }
             }
+            testID="LottiePlayerMark0.0.O"
             textFiltersAndroid={[]}
             textFiltersIOS={[]}
             useNativeLooping={false}
@@ -770,6 +773,7 @@ exports[`Game Component render winner count correctly 1`] = `
       "flex": 1,
     }
   }
+  testID="Game.view.container"
 >
   <View
     style={
@@ -887,6 +891,7 @@ exports[`Game Component render winner count correctly 1`] = `
           "fontSize": 40,
         }
       }
+      testID="Score.Text"
     >
       1 - 1
     </Text>
@@ -1498,6 +1503,7 @@ exports[`Game Component renders correctly 1`] = `
       "flex": 1,
     }
   }
+  testID="Game.view.container"
 >
   <View
     style={
@@ -1615,6 +1621,7 @@ exports[`Game Component renders correctly 1`] = `
           "fontSize": 40,
         }
       }
+      testID="Score.Text"
     >
       0 - 0
     </Text>
@@ -2226,6 +2233,7 @@ exports[`Game Component resets the game when touched after a winner is determine
       "flex": 1,
     }
   }
+  testID="Game.view.container"
 >
   <View
     style={
@@ -2343,6 +2351,7 @@ exports[`Game Component resets the game when touched after a winner is determine
           "fontSize": 40,
         }
       }
+      testID="Score.Text"
     >
       1 - 0
     </Text>

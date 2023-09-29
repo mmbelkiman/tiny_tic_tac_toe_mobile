@@ -77,6 +77,7 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   if (winnerResultDirection === 'horizontal') {
     return (
       <HorizontalLine
+        testID={boardPosition}
         color={color}
         positionY={getStraightLinePosition(squareSize, boardPosition)}
         opacityAnimation={opacityAnimation}
@@ -89,6 +90,7 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   if (winnerResultDirection === 'vertical') {
     return (
       <VerticalLine
+        testID={boardPosition}
         width={lineSize}
         color={color}
         positionX={getStraightLinePosition(squareSize, boardPosition)}
@@ -102,6 +104,7 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   if (winnerResultDirection === 'diagonalTopLeft') {
     return (
       <DiagonalTopLeftLine
+        testID={boardPosition}
         height={lineSize}
         color={color}
         length={getDiagonalLineLength(boardSize, squareSize)}
@@ -113,6 +116,7 @@ const WinnerLine: React.FC<WinnerLineProps> = ({
   }
   return (
     <DiagonalTopRightLine
+      testID={boardPosition}
       height={lineSize}
       color={color}
       length={getDiagonalLineLength(boardSize, squareSize)}

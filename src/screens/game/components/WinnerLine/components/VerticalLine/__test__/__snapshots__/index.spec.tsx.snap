@@ -20,6 +20,7 @@ exports[`VerticalLine Component should match the snapshot with a winner 1`] = `
       "width": 0,
     }
   }
+  testID="VerticalLine"
 />
 `;
 
@@ -43,5 +44,6 @@ exports[`VerticalLine Component should match the snapshot without a winner 1`] =
       "width": 0,
     }
   }
+  testID="VerticalLine"
 />
 `;

@@ -8,6 +8,7 @@ interface LottieElementProps {
   isVisible: boolean;
   squareSize: number;
   color: string;
+  testID?: string;
   backgroundColor: string;
 }
 
@@ -17,6 +18,7 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
   squareSize,
   color,
   backgroundColor,
+  testID,
 }) => {
   if (!isVisible) {
     return null;
@@ -24,6 +26,7 @@ const LottiePlayerMark: React.FC<LottieElementProps> = ({
 
   return (
     <LottieView
+      testID={`LottiePlayerMark${testID}.${isCircle ? 'O' : 'X'}`}
       duration={getMarkDuration(isCircle)}
       style={getMarkStyle(squareSize)}
       source={lottieMarkAnimation}

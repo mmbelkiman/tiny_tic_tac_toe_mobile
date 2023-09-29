@@ -18,7 +18,7 @@ const Menu: React.FC<Props> = ({
   testID = '',
 }) => {
   return (
-    <View style={styles.container}>
+    <View testID={'Menu.view.container'} style={styles.container}>
       <Logo />
 
       <Text style={styles.boardSizeTitleText}>Board Size</Text>

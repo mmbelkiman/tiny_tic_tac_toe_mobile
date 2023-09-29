@@ -49,6 +49,7 @@ const Square: React.FC<SquareProps> = ({
       onPress={handleOnPress}>
       <Animated.View style={getSquareStyle(squareSize, animation)}>
         <LottiePlayerMark
+          testID={testID}
           color={getPlayerMarkColor({
             isCircle,
             crossColor,

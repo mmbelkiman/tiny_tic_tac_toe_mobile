@@ -39,7 +39,9 @@ const NumberInput: React.FC<NumberInputProps> = ({
         <Text style={styles.textButton}>[-]</Text>
       </TouchableOpacity>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{`${inputValue}x${inputValue}`}</Text>
+        <Text
+          testID={`NumberInput${testID}.text`}
+          style={styles.text}>{`${inputValue}x${inputValue}`}</Text>
       </View>
       <TouchableOpacity
         testID={`NumberInput${testID}.TouchableOpacity.plus`}

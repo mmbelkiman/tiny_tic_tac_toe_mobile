@@ -78,7 +78,7 @@ const Game: React.FC<Props> = ({boardSize, onPressBack}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView testID={'Game.view.container'} style={styles.container}>
       <Header onPressBack={onPressBack} />
 
       <Score

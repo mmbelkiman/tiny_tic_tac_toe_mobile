@@ -59,6 +59,7 @@ exports[`Score component matches snapshot at circle turn 1`] = `
         "fontSize": 40,
       }
     }
+    testID="Score.Text"
   >
     3 - 2
   </Text>
@@ -165,6 +166,7 @@ exports[`Score component matches snapshot at cross turn 1`] = `
         "fontSize": 40,
       }
     }
+    testID="Score.Text"
   >
     3 - 2
   </Text>
@@ -271,6 +273,7 @@ exports[`Score component matches snapshot with winner 1`] = `
         "fontSize": 40,
       }
     }
+    testID="Score.Text"
   >
     3 - 2
   </Text>

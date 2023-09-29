@@ -30,6 +30,7 @@ exports[`LottiePlayerMark Component should render LottiePlayerMark with "O" anim
       "width": 100,
     }
   }
+  testID="LottiePlayerMarkundefined.O"
   textFiltersAndroid={[]}
   textFiltersIOS={[]}
   useNativeLooping={false}
@@ -66,6 +67,7 @@ exports[`LottiePlayerMark Component should render LottiePlayerMark with "X" anim
       "width": 100,
     }
   }
+  testID="LottiePlayerMarkundefined.X"
   textFiltersAndroid={[]}
   textFiltersIOS={[]}
   useNativeLooping={false}
