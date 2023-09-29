@@ -1,6 +1,7 @@
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 import Board from '../index';
+import {act} from 'react-test-renderer';
 
 const sampleBoard = [
   ['X', 'O', 'X'],
@@ -28,7 +29,7 @@ describe('Board Component', () => {
     expect(squareElements.length).toBe(9);
   });
 
-  it('calls onClickSquare when a square is pressed', () => {
+  it('calls onClickSquare when a square is pressed', async () => {
     const mockOnClickSquare = jest.fn();
 
     const {getByTestId} = render(
@@ -46,7 +47,9 @@ describe('Board Component', () => {
     const firstSquare = getByTestId('Square0.0.TouchableOpacity');
     fireEvent.press(firstSquare);
 
-    expect(mockOnClickSquare).toHaveBeenCalledWith(0, 0);
+    return act(() => {
+      expect(mockOnClickSquare).toHaveBeenCalledWith(0, 0);
+    });
   });
 
   it('matches snapshot with sample board data', () => {

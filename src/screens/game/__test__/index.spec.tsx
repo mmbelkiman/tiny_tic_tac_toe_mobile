@@ -1,6 +1,7 @@
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 import Game from '../index';
+import {act} from 'react-test-renderer';
 
 describe('Game Component', () => {
   it('resets the game when touched after a winner is determined', () => {
@@ -45,7 +46,7 @@ describe('Game Component', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('does not reset the game when touched without a winner', () => {
+  it('does not reset the game when touched without a winner', async () => {
     const mockOnPressBack = jest.fn();
 
     const {getByTestId, toJSON} = render(
@@ -56,7 +57,9 @@ describe('Game Component', () => {
     fireEvent.press(getByTestId('Square0.0.TouchableOpacity'));
     fireEvent.press(getByTestId('Game.gameCanvas'));
 
-    expect(toJSON()).toMatchSnapshot();
+    return act(() => {
+      expect(toJSON()).toMatchSnapshot();
+    });
   });
 
   it('press back button', () => {
